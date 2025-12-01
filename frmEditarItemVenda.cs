@@ -306,5 +306,28 @@ namespace SupplyFlow
         {
 
         }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (txtId.Text == "")
+            {
+                MessageBox.Show("Campo ID vazio. Digite o campo e tente novamente!");
+                return;
+            }
+            else
+            {
+                try
+                {
+                    id = Convert.ToInt32(txtId.Text);
+                    admin.excluirItemVenda(id);
+                    Limpar();
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Preenchida o ID com caracteres.\nRemova os caracteres e preencha com números!");
+                    return;
+                }
+            }
+        }
     }
 }

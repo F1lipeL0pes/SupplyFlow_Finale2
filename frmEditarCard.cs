@@ -18,6 +18,7 @@ namespace SupplyFlow
         private Admin admin;
         private int idUsuario;
         private string cargo;
+        private int id;
         public frmEditarCard(Admin admin, int idUsuario, string cargo)
         {
             InitializeComponent();
@@ -103,7 +104,6 @@ namespace SupplyFlow
 
         private void btnId_Click(object sender, EventArgs e)
         {
-            int id;
             if (txtId.Text == "")
             {
                 MessageBox.Show("ID não prenchido. Preencha com algum valor!");
@@ -150,6 +150,29 @@ namespace SupplyFlow
             {
                 MessageBox.Show("ID não encontrado no Banco de Dados.\nPreencha com outro ID existente!");
                 return;
+            }
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (txtDesc.Text == "" || txtId.Text == "" || txtNome.Text == "" || txtPreco.Text == "" || lboProduto.SelectedItem == null)
+            {
+                MessageBox.Show("Campos vazios. Digite os campos e tente novamente!");
+                return;
+            }
+            else
+            {
+                try
+                {
+                    id = Convert.ToInt32(txtId.Text);
+                    admin.excluirCardapio(id);
+                    Limpar();
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Preenchida o ID com caracteres.\nRemova os caracteres e preencha com números!");
+                    return;
+                }
             }
         }
     }

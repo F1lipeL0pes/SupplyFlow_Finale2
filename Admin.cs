@@ -759,6 +759,231 @@ namespace SupplyFlow
                 MessageBox.Show(sb.ToString());
             }
         }
+        public void excluirFuncionario(int id)
+        {
+            try
+            {
+                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+
+                using (var connection = new MySqlConnection(conexao))
+                {
+                    connection.Open();
+
+                    string sql = @"DELETE from funcionario
+                       WHERE idUsuario = @id";
+
+                    using (var cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+
+                        int linhasAfetadas = cmd.ExecuteNonQuery();
+
+                        if (linhasAfetadas == 0)
+                        {
+                            MessageBox.Show("Nenhum registro foi alterado. ID não encontrado.");
+                        }
+                    }
+                }
+            }
+            catch (MySqlException erro)
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine("Erro Banco!");
+                sb.AppendLine(erro.GetType().ToString());
+                sb.AppendLine(erro.Message);
+                sb.AppendLine("\n" + erro.StackTrace);
+                MessageBox.Show(sb.ToString());
+            }
+            catch (Exception erro)
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine("Exceção Desconhecida !!!");
+                sb.AppendLine(erro.GetType().ToString());
+                sb.AppendLine(erro.Message);
+                sb.AppendLine("\n" + erro.StackTrace);
+                MessageBox.Show(sb.ToString());
+            }
+        }
+        public void excluirCardapio(int id)
+        {
+            try
+            {
+                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+
+                using (var connection = new MySqlConnection(conexao))
+                {
+                    connection.Open();
+
+                    string sql = @"DELETE from Cardapio
+                       WHERE idPrato = @id";
+
+                    using (var cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+
+                        int linhasAfetadas = cmd.ExecuteNonQuery();
+
+                        if (linhasAfetadas == 0)
+                        {
+                            MessageBox.Show("Nenhum registro foi alterado. ID não encontrado.");
+                        }
+                    }
+                }
+            }
+            catch (MySqlException erro)
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine("Erro Banco!");
+                sb.AppendLine(erro.GetType().ToString());
+                sb.AppendLine(erro.Message);
+                sb.AppendLine("\n" + erro.StackTrace);
+                MessageBox.Show(sb.ToString());
+            }
+            catch (Exception erro)
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine("Exceção Desconhecida !!!");
+                sb.AppendLine(erro.GetType().ToString());
+                sb.AppendLine(erro.Message);
+                sb.AppendLine("\n" + erro.StackTrace);
+                MessageBox.Show(sb.ToString());
+            }
+        }
+        public void excluirInsumo(int id)
+        {
+            try
+            {
+                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+
+                using (var connection = new MySqlConnection(conexao))
+                {
+                    connection.Open();
+
+                    string sql = @"DELETE from insumos
+                       WHERE idInsumo = @id";
+
+                    using (var cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+
+                        int linhasAfetadas = cmd.ExecuteNonQuery();
+
+                        if (linhasAfetadas == 0)
+                        {
+                            MessageBox.Show("Nenhum registro foi alterado. ID não encontrado.");
+                        }
+                    }
+                }
+            }
+            catch (MySqlException erro)
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine("Erro Banco!");
+                sb.AppendLine(erro.GetType().ToString());
+                sb.AppendLine(erro.Message);
+                sb.AppendLine("\n" + erro.StackTrace);
+                MessageBox.Show(sb.ToString());
+            }
+            catch (Exception erro)
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine("Exceção Desconhecida !!!");
+                sb.AppendLine(erro.GetType().ToString());
+                sb.AppendLine(erro.Message);
+                sb.AppendLine("\n" + erro.StackTrace);
+                MessageBox.Show(sb.ToString());
+            }
+        }
+        public void excluirItemVenda(int id)
+        {
+            try
+            {
+                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+
+                using (var connection = new MySqlConnection(conexao))
+                {
+                    connection.Open();
+
+                    string sql = @"DELETE from Itens_venda
+                       WHERE idItensVenda = @id";
+
+                    using (var cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+
+                        int linhasAfetadas = cmd.ExecuteNonQuery();
+
+                        if (linhasAfetadas == 0)
+                        {
+                            MessageBox.Show("Nenhum registro foi alterado. ID não encontrado.");
+                        }
+                    }
+                }
+            }
+            catch (MySqlException erro)
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine("Erro Banco!");
+                sb.AppendLine(erro.GetType().ToString());
+                sb.AppendLine(erro.Message);
+                sb.AppendLine("\n" + erro.StackTrace);
+                MessageBox.Show(sb.ToString());
+            }
+            catch (Exception erro)
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine("Exceção Desconhecida !!!");
+                sb.AppendLine(erro.GetType().ToString());
+                sb.AppendLine(erro.Message);
+                sb.AppendLine("\n" + erro.StackTrace);
+                MessageBox.Show(sb.ToString());
+            }
+        }
+        public void excluirVenda(int id)
+        {
+            try
+            {
+                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+
+                using (var connection = new MySqlConnection(conexao))
+                {
+                    connection.Open();
+
+                    string sql = @"DELETE from Venda
+                       WHERE idVenda = @id";
+
+                    using (var cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+
+                        int linhasAfetadas = cmd.ExecuteNonQuery();
+
+                        if (linhasAfetadas == 0)
+                        {
+                            MessageBox.Show("Nenhum registro foi alterado. ID não encontrado.");
+                        }
+                    }
+                }
+            }
+            catch (MySqlException erro)
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine("Erro Banco!");
+                sb.AppendLine(erro.GetType().ToString());
+                sb.AppendLine(erro.Message);
+                sb.AppendLine("\n" + erro.StackTrace);
+                MessageBox.Show(sb.ToString());
+            }
+            catch (Exception erro)
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine("Exceção Desconhecida !!!");
+                sb.AppendLine(erro.GetType().ToString());
+                sb.AppendLine(erro.Message);
+                sb.AppendLine("\n" + erro.StackTrace);
+                MessageBox.Show(sb.ToString());
+            }
+        }
     }
     
     

@@ -44,6 +44,7 @@
             this.lblId = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.btnId = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,7 +80,7 @@
             this.lblTela.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lblTela.Location = new System.Drawing.Point(3, 15);
             this.lblTela.Name = "lblTela";
-            this.lblTela.Size = new System.Drawing.Size(328, 32);
+            this.lblTela.Size = new System.Drawing.Size(247, 24);
             this.lblTela.TabIndex = 2;
             this.lblTela.Text = "Editar item do Cardápio";
             // 
@@ -88,14 +89,14 @@
             this.txtPreco.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPreco.Location = new System.Drawing.Point(308, 177);
             this.txtPreco.Name = "txtPreco";
-            this.txtPreco.Size = new System.Drawing.Size(167, 30);
+            this.txtPreco.Size = new System.Drawing.Size(167, 26);
             this.txtPreco.TabIndex = 49;
             // 
             // lboProduto
             // 
             this.lboProduto.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lboProduto.FormattingEnabled = true;
-            this.lboProduto.ItemHeight = 23;
+            this.lboProduto.ItemHeight = 18;
             this.lboProduto.Items.AddRange(new object[] {
             "Aperitivos",
             "Entrada",
@@ -104,7 +105,7 @@
             "Bebida"});
             this.lboProduto.Location = new System.Drawing.Point(480, 212);
             this.lboProduto.Name = "lboProduto";
-            this.lboProduto.Size = new System.Drawing.Size(161, 96);
+            this.lboProduto.Size = new System.Drawing.Size(161, 94);
             this.lboProduto.TabIndex = 50;
             // 
             // lblCategoria
@@ -114,7 +115,7 @@
             this.lblCategoria.ForeColor = System.Drawing.Color.Black;
             this.lblCategoria.Location = new System.Drawing.Point(481, 177);
             this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Size = new System.Drawing.Size(151, 32);
+            this.lblCategoria.Size = new System.Drawing.Size(114, 24);
             this.lblCategoria.TabIndex = 56;
             this.lblCategoria.Text = "Categoria:";
             // 
@@ -125,7 +126,7 @@
             this.lblPreco.ForeColor = System.Drawing.Color.Black;
             this.lblPreco.Location = new System.Drawing.Point(202, 177);
             this.lblPreco.Name = "lblPreco";
-            this.lblPreco.Size = new System.Drawing.Size(100, 32);
+            this.lblPreco.Size = new System.Drawing.Size(76, 24);
             this.lblPreco.TabIndex = 55;
             this.lblPreco.Text = "Preço:";
             // 
@@ -145,7 +146,7 @@
             this.lblDesc.ForeColor = System.Drawing.Color.Black;
             this.lblDesc.Location = new System.Drawing.Point(21, 177);
             this.lblDesc.Name = "lblDesc";
-            this.lblDesc.Size = new System.Drawing.Size(155, 32);
+            this.lblDesc.Size = new System.Drawing.Size(118, 24);
             this.lblDesc.TabIndex = 54;
             this.lblDesc.Text = "Descrição:";
             // 
@@ -154,7 +155,7 @@
             this.txtNome.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNome.Location = new System.Drawing.Point(130, 135);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(451, 30);
+            this.txtNome.Size = new System.Drawing.Size(451, 26);
             this.txtNome.TabIndex = 47;
             // 
             // lblNome
@@ -164,7 +165,7 @@
             this.lblNome.ForeColor = System.Drawing.Color.Black;
             this.lblNome.Location = new System.Drawing.Point(22, 135);
             this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(102, 32);
+            this.lblNome.Size = new System.Drawing.Size(75, 24);
             this.lblNome.TabIndex = 53;
             this.lblNome.Text = "Nome:";
             // 
@@ -175,7 +176,7 @@
             this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLimpar.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnLimpar.Location = new System.Drawing.Point(512, 339);
+            this.btnLimpar.Location = new System.Drawing.Point(260, 339);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(148, 54);
             this.btnLimpar.TabIndex = 52;
@@ -190,7 +191,7 @@
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCadastrar.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnCadastrar.Location = new System.Drawing.Point(237, 339);
+            this.btnCadastrar.Location = new System.Drawing.Point(12, 339);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(148, 54);
             this.btnCadastrar.TabIndex = 51;
@@ -205,7 +206,7 @@
             this.lblId.ForeColor = System.Drawing.Color.Black;
             this.lblId.Location = new System.Drawing.Point(22, 70);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(52, 32);
+            this.lblId.Size = new System.Drawing.Size(37, 24);
             this.lblId.TabIndex = 57;
             this.lblId.Text = "ID:";
             // 
@@ -214,7 +215,7 @@
             this.txtId.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId.Location = new System.Drawing.Point(80, 72);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(96, 30);
+            this.txtId.Size = new System.Drawing.Size(96, 26);
             this.txtId.TabIndex = 58;
             // 
             // btnId
@@ -232,6 +233,21 @@
             this.btnId.UseVisualStyleBackColor = false;
             this.btnId.Click += new System.EventHandler(this.btnId_Click);
             // 
+            // btnExcluir
+            // 
+            this.btnExcluir.BackColor = System.Drawing.Color.CadetBlue;
+            this.btnExcluir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnExcluir.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluir.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnExcluir.Location = new System.Drawing.Point(522, 337);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(148, 54);
+            this.btnExcluir.TabIndex = 60;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
             // frmEditarCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -239,6 +255,7 @@
             this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(682, 403);
             this.ControlBox = false;
+            this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnId);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.lblId);
@@ -282,5 +299,6 @@
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Button btnId;
+        private System.Windows.Forms.Button btnExcluir;
     }
 }

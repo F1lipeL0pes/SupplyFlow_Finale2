@@ -52,6 +52,7 @@
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.lblNome = new System.Windows.Forms.Label();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,7 +76,7 @@
             this.txtId.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId.Location = new System.Drawing.Point(70, 74);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(96, 30);
+            this.txtId.Size = new System.Drawing.Size(96, 26);
             this.txtId.TabIndex = 62;
             // 
             // lblId
@@ -85,7 +86,7 @@
             this.lblId.ForeColor = System.Drawing.Color.Black;
             this.lblId.Location = new System.Drawing.Point(12, 72);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(52, 32);
+            this.lblId.Size = new System.Drawing.Size(37, 24);
             this.lblId.TabIndex = 61;
             this.lblId.Text = "ID:";
             // 
@@ -121,7 +122,7 @@
             this.lblTela.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lblTela.Location = new System.Drawing.Point(3, 15);
             this.lblTela.Name = "lblTela";
-            this.lblTela.Size = new System.Drawing.Size(259, 32);
+            this.lblTela.Size = new System.Drawing.Size(195, 24);
             this.lblTela.TabIndex = 2;
             this.lblTela.Text = "Editar Funcionário";
             // 
@@ -129,14 +130,14 @@
             // 
             this.lboCargo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lboCargo.FormattingEnabled = true;
-            this.lboCargo.ItemHeight = 23;
+            this.lboCargo.ItemHeight = 18;
             this.lboCargo.Items.AddRange(new object[] {
             "garçom",
             "responsável de estoque",
             "gerente"});
             this.lboCargo.Location = new System.Drawing.Point(93, 193);
             this.lboCargo.Name = "lboCargo";
-            this.lboCargo.Size = new System.Drawing.Size(303, 73);
+            this.lboCargo.Size = new System.Drawing.Size(303, 58);
             this.lboCargo.TabIndex = 82;
             // 
             // txtTelefone
@@ -144,7 +145,7 @@
             this.txtTelefone.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefone.Location = new System.Drawing.Point(494, 336);
             this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Size = new System.Drawing.Size(176, 30);
+            this.txtTelefone.Size = new System.Drawing.Size(176, 26);
             this.txtTelefone.TabIndex = 81;
             // 
             // txtCPF
@@ -152,7 +153,7 @@
             this.txtCPF.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCPF.Location = new System.Drawing.Point(494, 194);
             this.txtCPF.Name = "txtCPF";
-            this.txtCPF.Size = new System.Drawing.Size(176, 30);
+            this.txtCPF.Size = new System.Drawing.Size(176, 26);
             this.txtCPF.TabIndex = 80;
             // 
             // txtSalario
@@ -160,7 +161,7 @@
             this.txtSalario.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSalario.Location = new System.Drawing.Point(92, 384);
             this.txtSalario.Name = "txtSalario";
-            this.txtSalario.Size = new System.Drawing.Size(128, 30);
+            this.txtSalario.Size = new System.Drawing.Size(128, 26);
             this.txtSalario.TabIndex = 68;
             // 
             // txtDataAdm
@@ -169,7 +170,7 @@
             this.txtDataAdm.Location = new System.Drawing.Point(227, 335);
             this.txtDataAdm.Mask = "00/00/0000";
             this.txtDataAdm.Name = "txtDataAdm";
-            this.txtDataAdm.Size = new System.Drawing.Size(97, 30);
+            this.txtDataAdm.Size = new System.Drawing.Size(97, 26);
             this.txtDataAdm.TabIndex = 67;
             // 
             // txtSenha
@@ -177,7 +178,7 @@
             this.txtSenha.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSenha.Location = new System.Drawing.Point(494, 274);
             this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(176, 30);
+            this.txtSenha.Size = new System.Drawing.Size(176, 26);
             this.txtSenha.TabIndex = 66;
             this.txtSenha.UseSystemPasswordChar = true;
             // 
@@ -186,7 +187,7 @@
             this.txtLogin.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLogin.Location = new System.Drawing.Point(92, 274);
             this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(303, 30);
+            this.txtLogin.Size = new System.Drawing.Size(303, 26);
             this.txtLogin.TabIndex = 65;
             // 
             // lblCPF
@@ -196,7 +197,7 @@
             this.lblCPF.ForeColor = System.Drawing.Color.Black;
             this.lblCPF.Location = new System.Drawing.Point(429, 193);
             this.lblCPF.Name = "lblCPF";
-            this.lblCPF.Size = new System.Drawing.Size(79, 32);
+            this.lblCPF.Size = new System.Drawing.Size(59, 24);
             this.lblCPF.TabIndex = 78;
             this.lblCPF.Text = "CPF:";
             // 
@@ -207,7 +208,7 @@
             this.lblTelefone.ForeColor = System.Drawing.Color.Black;
             this.lblTelefone.Location = new System.Drawing.Point(386, 335);
             this.lblTelefone.Name = "lblTelefone";
-            this.lblTelefone.Size = new System.Drawing.Size(136, 32);
+            this.lblTelefone.Size = new System.Drawing.Size(102, 24);
             this.lblTelefone.TabIndex = 77;
             this.lblTelefone.Text = "Telefone:";
             // 
@@ -218,7 +219,7 @@
             this.lblDataAdm.ForeColor = System.Drawing.Color.Black;
             this.lblDataAdm.Location = new System.Drawing.Point(21, 337);
             this.lblDataAdm.Name = "lblDataAdm";
-            this.lblDataAdm.Size = new System.Drawing.Size(262, 32);
+            this.lblDataAdm.Size = new System.Drawing.Size(200, 24);
             this.lblDataAdm.TabIndex = 76;
             this.lblDataAdm.Text = "Data de Admissão:";
             // 
@@ -229,7 +230,7 @@
             this.lblSalario.ForeColor = System.Drawing.Color.Black;
             this.lblSalario.Location = new System.Drawing.Point(0, 386);
             this.lblSalario.Name = "lblSalario";
-            this.lblSalario.Size = new System.Drawing.Size(116, 32);
+            this.lblSalario.Size = new System.Drawing.Size(86, 24);
             this.lblSalario.TabIndex = 75;
             this.lblSalario.Text = "Salário:";
             // 
@@ -240,7 +241,7 @@
             this.lblCargo.ForeColor = System.Drawing.Color.Black;
             this.lblCargo.Location = new System.Drawing.Point(9, 193);
             this.lblCargo.Name = "lblCargo";
-            this.lblCargo.Size = new System.Drawing.Size(104, 32);
+            this.lblCargo.Size = new System.Drawing.Size(78, 24);
             this.lblCargo.TabIndex = 74;
             this.lblCargo.Text = "Cargo:";
             // 
@@ -251,7 +252,7 @@
             this.lblSenha.ForeColor = System.Drawing.Color.Black;
             this.lblSenha.Location = new System.Drawing.Point(407, 276);
             this.lblSenha.Name = "lblSenha";
-            this.lblSenha.Size = new System.Drawing.Size(106, 32);
+            this.lblSenha.Size = new System.Drawing.Size(81, 24);
             this.lblSenha.TabIndex = 73;
             this.lblSenha.Text = "Senha:";
             // 
@@ -262,7 +263,7 @@
             this.lblLogin.ForeColor = System.Drawing.Color.Black;
             this.lblLogin.Location = new System.Drawing.Point(12, 276);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(100, 32);
+            this.lblLogin.Size = new System.Drawing.Size(74, 24);
             this.lblLogin.TabIndex = 72;
             this.lblLogin.Text = "Login:";
             // 
@@ -271,7 +272,7 @@
             this.txtNome.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNome.Location = new System.Drawing.Point(93, 143);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(577, 30);
+            this.txtNome.Size = new System.Drawing.Size(577, 26);
             this.txtNome.TabIndex = 64;
             // 
             // btnLimpar
@@ -281,7 +282,7 @@
             this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLimpar.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnLimpar.Location = new System.Drawing.Point(597, 426);
+            this.btnLimpar.Location = new System.Drawing.Point(422, 444);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(148, 54);
             this.btnLimpar.TabIndex = 70;
@@ -296,7 +297,7 @@
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCadastrar.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnCadastrar.Location = new System.Drawing.Point(259, 426);
+            this.btnCadastrar.Location = new System.Drawing.Point(208, 444);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(148, 54);
             this.btnCadastrar.TabIndex = 69;
@@ -311,9 +312,24 @@
             this.lblNome.ForeColor = System.Drawing.Color.Black;
             this.lblNome.Location = new System.Drawing.Point(12, 145);
             this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(102, 32);
+            this.lblNome.Size = new System.Drawing.Size(75, 24);
             this.lblNome.TabIndex = 71;
             this.lblNome.Text = "Nome:";
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.BackColor = System.Drawing.Color.CadetBlue;
+            this.btnExcluir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnExcluir.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluir.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnExcluir.Location = new System.Drawing.Point(627, 444);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(148, 54);
+            this.btnExcluir.TabIndex = 83;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // frmEditarFunc
             // 
@@ -322,6 +338,7 @@
             this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(849, 510);
             this.ControlBox = false;
+            this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.lboCargo);
             this.Controls.Add(this.txtTelefone);
             this.Controls.Add(this.txtCPF);
@@ -381,5 +398,6 @@
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Label lblNome;
+        private System.Windows.Forms.Button btnExcluir;
     }
 }

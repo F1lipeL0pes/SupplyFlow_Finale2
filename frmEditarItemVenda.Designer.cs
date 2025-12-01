@@ -48,6 +48,7 @@
             this.lblIdVenda = new System.Windows.Forms.Label();
             this.txtQtd = new System.Windows.Forms.TextBox();
             this.lblQtd = new System.Windows.Forms.Label();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -85,7 +86,7 @@
             this.lblTela.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lblTela.Location = new System.Drawing.Point(3, 15);
             this.lblTela.Name = "lblTela";
-            this.lblTela.Size = new System.Drawing.Size(287, 32);
+            this.lblTela.Size = new System.Drawing.Size(217, 24);
             this.lblTela.TabIndex = 2;
             this.lblTela.Text = "Editar Item de Venda";
             // 
@@ -109,7 +110,7 @@
             this.txtId.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId.Location = new System.Drawing.Point(70, 72);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(96, 30);
+            this.txtId.Size = new System.Drawing.Size(96, 26);
             this.txtId.TabIndex = 64;
             this.txtId.TextChanged += new System.EventHandler(this.txtId_TextChanged);
             // 
@@ -120,7 +121,7 @@
             this.lblId.ForeColor = System.Drawing.Color.Black;
             this.lblId.Location = new System.Drawing.Point(12, 70);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(52, 32);
+            this.lblId.Size = new System.Drawing.Size(37, 24);
             this.lblId.TabIndex = 63;
             this.lblId.Text = "ID:";
             this.lblId.Click += new System.EventHandler(this.lblId_Click);
@@ -143,7 +144,7 @@
             this.rdbSobremesa.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbSobremesa.Location = new System.Drawing.Point(270, 3);
             this.rdbSobremesa.Name = "rdbSobremesa";
-            this.rdbSobremesa.Size = new System.Drawing.Size(132, 27);
+            this.rdbSobremesa.Size = new System.Drawing.Size(108, 22);
             this.rdbSobremesa.TabIndex = 4;
             this.rdbSobremesa.TabStop = true;
             this.rdbSobremesa.Text = "Sobremesa";
@@ -156,7 +157,7 @@
             this.rdbBebida.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbBebida.Location = new System.Drawing.Point(122, 31);
             this.rdbBebida.Name = "rdbBebida";
-            this.rdbBebida.Size = new System.Drawing.Size(92, 27);
+            this.rdbBebida.Size = new System.Drawing.Size(77, 22);
             this.rdbBebida.TabIndex = 3;
             this.rdbBebida.TabStop = true;
             this.rdbBebida.Text = "Bebida";
@@ -169,7 +170,7 @@
             this.rdbEntrada.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbEntrada.Location = new System.Drawing.Point(3, 31);
             this.rdbEntrada.Name = "rdbEntrada";
-            this.rdbEntrada.Size = new System.Drawing.Size(100, 27);
+            this.rdbEntrada.Size = new System.Drawing.Size(81, 22);
             this.rdbEntrada.TabIndex = 2;
             this.rdbEntrada.TabStop = true;
             this.rdbEntrada.Text = "Entrada";
@@ -182,7 +183,7 @@
             this.rdbAperitivo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbAperitivo.Location = new System.Drawing.Point(3, 3);
             this.rdbAperitivo.Name = "rdbAperitivo";
-            this.rdbAperitivo.Size = new System.Drawing.Size(107, 27);
+            this.rdbAperitivo.Size = new System.Drawing.Size(88, 22);
             this.rdbAperitivo.TabIndex = 1;
             this.rdbAperitivo.TabStop = true;
             this.rdbAperitivo.Text = "Aperitivo";
@@ -195,7 +196,7 @@
             this.rdbPrato.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbPrato.Location = new System.Drawing.Point(122, 3);
             this.rdbPrato.Name = "rdbPrato";
-            this.rdbPrato.Size = new System.Drawing.Size(159, 27);
+            this.rdbPrato.Size = new System.Drawing.Size(129, 22);
             this.rdbPrato.TabIndex = 0;
             this.rdbPrato.TabStop = true;
             this.rdbPrato.Text = "Prato Principal";
@@ -236,10 +237,10 @@
             // 
             this.lboCardapio.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lboCardapio.FormattingEnabled = true;
-            this.lboCardapio.ItemHeight = 23;
+            this.lboCardapio.ItemHeight = 18;
             this.lboCardapio.Location = new System.Drawing.Point(277, 191);
             this.lboCardapio.Name = "lboCardapio";
-            this.lboCardapio.Size = new System.Drawing.Size(392, 234);
+            this.lboCardapio.Size = new System.Drawing.Size(392, 292);
             this.lboCardapio.TabIndex = 70;
             // 
             // lblCardapio
@@ -249,7 +250,7 @@
             this.lblCardapio.ForeColor = System.Drawing.Color.Black;
             this.lblCardapio.Location = new System.Drawing.Point(394, 72);
             this.lblCardapio.Name = "lblCardapio";
-            this.lblCardapio.Size = new System.Drawing.Size(252, 32);
+            this.lblCardapio.Size = new System.Drawing.Size(189, 24);
             this.lblCardapio.TabIndex = 71;
             this.lblCardapio.Text = "Item do Carpápio:";
             // 
@@ -258,7 +259,7 @@
             this.txtIDVenda.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIDVenda.Location = new System.Drawing.Point(146, 167);
             this.txtIDVenda.Name = "txtIDVenda";
-            this.txtIDVenda.Size = new System.Drawing.Size(101, 30);
+            this.txtIDVenda.Size = new System.Drawing.Size(101, 26);
             this.txtIDVenda.TabIndex = 68;
             // 
             // lblIdVenda
@@ -268,7 +269,7 @@
             this.lblIdVenda.ForeColor = System.Drawing.Color.Black;
             this.lblIdVenda.Location = new System.Drawing.Point(35, 169);
             this.lblIdVenda.Name = "lblIdVenda";
-            this.lblIdVenda.Size = new System.Drawing.Size(141, 32);
+            this.lblIdVenda.Size = new System.Drawing.Size(105, 24);
             this.lblIdVenda.TabIndex = 69;
             this.lblIdVenda.Text = "ID Venda:";
             // 
@@ -277,7 +278,7 @@
             this.txtQtd.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQtd.Location = new System.Drawing.Point(151, 121);
             this.txtQtd.Name = "txtQtd";
-            this.txtQtd.Size = new System.Drawing.Size(101, 30);
+            this.txtQtd.Size = new System.Drawing.Size(101, 26);
             this.txtQtd.TabIndex = 66;
             // 
             // lblQtd
@@ -287,17 +288,33 @@
             this.lblQtd.ForeColor = System.Drawing.Color.Black;
             this.lblQtd.Location = new System.Drawing.Point(12, 123);
             this.lblQtd.Name = "lblQtd";
-            this.lblQtd.Size = new System.Drawing.Size(175, 32);
+            this.lblQtd.Size = new System.Drawing.Size(133, 24);
             this.lblQtd.TabIndex = 67;
             this.lblQtd.Text = "Quantidade:";
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.BackColor = System.Drawing.Color.CadetBlue;
+            this.btnExcluir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnExcluir.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluir.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnExcluir.Location = new System.Drawing.Point(41, 426);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(148, 54);
+            this.btnExcluir.TabIndex = 84;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // frmEditarItemVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
-            this.ClientSize = new System.Drawing.Size(682, 403);
+            this.ClientSize = new System.Drawing.Size(682, 492);
             this.ControlBox = false;
+            this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnEditar);
@@ -347,5 +364,6 @@
         private System.Windows.Forms.Label lblIdVenda;
         private System.Windows.Forms.TextBox txtQtd;
         private System.Windows.Forms.Label lblQtd;
+        private System.Windows.Forms.Button btnExcluir;
     }
 }

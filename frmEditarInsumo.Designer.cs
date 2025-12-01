@@ -42,6 +42,7 @@
             this.btnId = new System.Windows.Forms.Button();
             this.txtId = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +53,7 @@
             this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLimpar.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnLimpar.Location = new System.Drawing.Point(521, 347);
+            this.btnLimpar.Location = new System.Drawing.Point(300, 347);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(148, 54);
             this.btnLimpar.TabIndex = 33;
@@ -67,7 +68,7 @@
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditar.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnEditar.Location = new System.Drawing.Point(246, 347);
+            this.btnEditar.Location = new System.Drawing.Point(93, 347);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(148, 54);
             this.btnEditar.TabIndex = 32;
@@ -79,20 +80,20 @@
             // 
             this.lboCardapio.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lboCardapio.FormattingEnabled = true;
-            this.lboCardapio.ItemHeight = 23;
+            this.lboCardapio.ItemHeight = 18;
             this.lboCardapio.Location = new System.Drawing.Point(206, 222);
             this.lboCardapio.Name = "lboCardapio";
-            this.lboCardapio.Size = new System.Drawing.Size(463, 119);
+            this.lboCardapio.Size = new System.Drawing.Size(463, 112);
             this.lboCardapio.TabIndex = 31;
             // 
             // lboProduto
             // 
             this.lboProduto.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lboProduto.FormattingEnabled = true;
-            this.lboProduto.ItemHeight = 23;
+            this.lboProduto.ItemHeight = 18;
             this.lboProduto.Location = new System.Drawing.Point(416, 134);
             this.lboProduto.Name = "lboProduto";
-            this.lboProduto.Size = new System.Drawing.Size(253, 73);
+            this.lboProduto.Size = new System.Drawing.Size(253, 58);
             this.lboProduto.TabIndex = 30;
             // 
             // lblCardapio
@@ -102,7 +103,7 @@
             this.lblCardapio.ForeColor = System.Drawing.Color.Black;
             this.lblCardapio.Location = new System.Drawing.Point(11, 220);
             this.lblCardapio.Name = "lblCardapio";
-            this.lblCardapio.Size = new System.Drawing.Size(252, 32);
+            this.lblCardapio.Size = new System.Drawing.Size(189, 24);
             this.lblCardapio.TabIndex = 37;
             this.lblCardapio.Text = "Item do Carpápio:";
             // 
@@ -113,7 +114,7 @@
             this.lblProduto.ForeColor = System.Drawing.Color.Black;
             this.lblProduto.Location = new System.Drawing.Point(312, 134);
             this.lblProduto.Name = "lblProduto";
-            this.lblProduto.Size = new System.Drawing.Size(130, 32);
+            this.lblProduto.Size = new System.Drawing.Size(98, 24);
             this.lblProduto.TabIndex = 36;
             this.lblProduto.Text = "Produto:";
             // 
@@ -122,7 +123,7 @@
             this.txtQtd.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQtd.Location = new System.Drawing.Point(163, 132);
             this.txtQtd.Name = "txtQtd";
-            this.txtQtd.Size = new System.Drawing.Size(130, 30);
+            this.txtQtd.Size = new System.Drawing.Size(130, 26);
             this.txtQtd.TabIndex = 29;
             // 
             // lblQuantidade
@@ -132,7 +133,7 @@
             this.lblQuantidade.ForeColor = System.Drawing.Color.Black;
             this.lblQuantidade.Location = new System.Drawing.Point(24, 134);
             this.lblQuantidade.Name = "lblQuantidade";
-            this.lblQuantidade.Size = new System.Drawing.Size(175, 32);
+            this.lblQuantidade.Size = new System.Drawing.Size(133, 24);
             this.lblQuantidade.TabIndex = 35;
             this.lblQuantidade.Text = "Quantidade:";
             // 
@@ -168,7 +169,7 @@
             this.lblTela.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lblTela.Location = new System.Drawing.Point(3, 15);
             this.lblTela.Name = "lblTela";
-            this.lblTela.Size = new System.Drawing.Size(215, 32);
+            this.lblTela.Size = new System.Drawing.Size(162, 24);
             this.lblTela.TabIndex = 2;
             this.lblTela.Text = "Editar Insumos";
             // 
@@ -192,7 +193,7 @@
             this.txtId.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId.Location = new System.Drawing.Point(93, 72);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(96, 30);
+            this.txtId.Size = new System.Drawing.Size(96, 26);
             this.txtId.TabIndex = 61;
             // 
             // lblId
@@ -202,9 +203,24 @@
             this.lblId.ForeColor = System.Drawing.Color.Black;
             this.lblId.Location = new System.Drawing.Point(35, 70);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(52, 32);
+            this.lblId.Size = new System.Drawing.Size(37, 24);
             this.lblId.TabIndex = 60;
             this.lblId.Text = "ID:";
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.BackColor = System.Drawing.Color.CadetBlue;
+            this.btnExcluir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnExcluir.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluir.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnExcluir.Location = new System.Drawing.Point(522, 347);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(148, 54);
+            this.btnExcluir.TabIndex = 84;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // frmEditarInsumo
             // 
@@ -213,6 +229,7 @@
             this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(682, 403);
             this.ControlBox = false;
+            this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnId);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.lblId);
@@ -253,5 +270,6 @@
         private System.Windows.Forms.Button btnId;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label lblId;
+        private System.Windows.Forms.Button btnExcluir;
     }
 }
