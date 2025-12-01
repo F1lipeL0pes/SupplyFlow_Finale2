@@ -838,6 +838,72 @@ namespace SupplyFlow
                 MessageBox.Show(sb.ToString());
             }
         }
+
+        public void editarProduto(ClasseProduto produto, int id)
+        {
+            try
+            {
+                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+
+                using (var connection = new MySqlConnection(conexao))
+                {
+                    connection.Open();
+
+                    string sql = @"UPDATE Produto
+                       SET descrição = @desc,
+                            categoria = @categoria,
+                            quantidade_atual = @qtd,
+                            quantidade_adequada = @qtdIdeal,
+                            unidade_medida = @uniMed,
+                            preço_compra = @preco
+                       WHERE idProduto = @id";
+
+                    using (var cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@desc", produto.getDesc());
+                        cmd.Parameters.AddWithValue("@categoria", produto.getCategoria());
+                        cmd.Parameters.AddWithValue("@qtd", produto.getQuantAtual());
+                        cmd.Parameters.AddWithValue("@qtdIdeal", produto.getQuantIdeal());
+                        cmd.Parameters.AddWithValue("@uniMed", produto.getUniMed());
+                        cmd.Parameters.AddWithValue("@preco", produto.getPreco());
+
+                        int linhasAfetadas = cmd.ExecuteNonQuery();
+
+                        if (linhasAfetadas == 0)
+                        {
+                            throw (new idNaoEncontradoException());
+                        }
+                        MessageBox.Show("Produto atualizado com sucesso!");
+                    }
+                }
+            }
+            catch (MySqlException erro)
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine("Erro Banco!");
+                sb.AppendLine(erro.GetType().ToString());
+                sb.AppendLine(erro.Message);
+                sb.AppendLine("\n" + erro.StackTrace);
+                MessageBox.Show(sb.ToString());
+            }
+            catch (idNaoEncontradoException)
+            {
+                MessageBox.Show("ID não encontrado!");
+            }
+            catch (Exception erro)
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine("Exceção Desconhecida !!!");
+                sb.AppendLine(erro.GetType().ToString());
+                sb.AppendLine(erro.Message);
+                sb.AppendLine("\n" + erro.StackTrace);
+                MessageBox.Show(sb.ToString());
+            }
+        }
+
+
+        //EXCLUSÕES
         public void excluirFuncionario(int id)
         {
             try
@@ -1088,6 +1154,57 @@ namespace SupplyFlow
                 MessageBox.Show(sb.ToString());
             }
         }
+        public void excluirProduto(int id)
+        {
+            try
+            {
+                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+
+                using (var connection = new MySqlConnection(conexao))
+                {
+                    connection.Open();
+
+                    string sql = @"DELETE from Produto
+                       WHERE idProduto = @id";
+
+                    using (var cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+
+                        int linhasAfetadas = cmd.ExecuteNonQuery();
+
+                        if (linhasAfetadas == 0)
+                        {
+                            throw (new idNaoEncontradoException());
+                        }
+                        MessageBox.Show("Produto excluída com sucesso!");
+                    }
+                }
+            }
+            catch (MySqlException erro)
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine("Erro Banco!");
+                sb.AppendLine(erro.GetType().ToString());
+                sb.AppendLine(erro.Message);
+                sb.AppendLine("\n" + erro.StackTrace);
+                MessageBox.Show(sb.ToString());
+            }
+            catch (idNaoEncontradoException)
+            {
+                MessageBox.Show("ID não encontrado");
+            }
+            catch (Exception erro)
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine("Exceção Desconhecida !!!");
+                sb.AppendLine(erro.GetType().ToString());
+                sb.AppendLine(erro.Message);
+                sb.AppendLine("\n" + erro.StackTrace);
+                MessageBox.Show(sb.ToString());
+            }
+        }
+    
     }
     
     

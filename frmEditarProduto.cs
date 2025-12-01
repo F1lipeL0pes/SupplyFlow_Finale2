@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SupplyFlow.frmEditarItemVenda;
 
 namespace SupplyFlow
 {
@@ -17,13 +19,12 @@ namespace SupplyFlow
         private bool isEditing = false;
         private int idUsuario;
         private string cargo;
+        private int id;
         public frmEditarProduto(Admin admin, int idusuario, string cargo)
         {
             this.admin = new Admin();
             InitializeComponent();
 
-            // registra evento: quando o usuário sair do txtId, tenta preencher campos
-            this.txtId.Leave += new EventHandler(this.txtId_Leave);
             this.idUsuario = idusuario;
             this.cargo = cargo;
         }
@@ -35,158 +36,172 @@ namespace SupplyFlow
             this.Close();
         }
 
-        // Ao perder foco do campo ID busca no banco e preenche campos
-        private void txtId_Leave(object sender, EventArgs e)
-        {
-            int id;
-            string idText = txtId.Text.Trim();
-            if (string.IsNullOrEmpty(idText))
-                return;
-
-            if (!int.TryParse(idText, out id) || id <= 0)
-            {
-                MessageBox.Show("Informe um ID numérico válido.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            DataTable dt = admin.GetProdutoById(id);
-            if (dt == null || dt.Rows.Count == 0)
-            {
-                MessageBox.Show("Produto não encontrado para o ID: " + id, "Pesquisa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                // opcional: limpar campos se não encontrado
-                // LimparCampos();
-                return;
-            }
-
-            DataRow row = dt.Rows[0];
-            txtNome.Text = Convert.ToString(row["Descricao"]);
-            txtCategoria.Text = Convert.ToString(row["categoria"]);
-            txtQtd.Text = Convert.ToString(row["QuantidadeAtual"]);
-            txtQtdIdeal.Text = Convert.ToString(row["QuantidadeAdequada"]);
-            txtUniMed.Text = Convert.ToString(row["UnidadeMedida"]);
-            mtxtPreco.Text = Convert.ToString(row["PrecoCompra"]);
-
-            isEditing = false;
-            btnEditar.Text = "Editar";
-            SetFieldsEditable(false);
-        }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            int id;
-            if (!int.TryParse(txtId.Text.Trim(), out id) || id <= 0)
+            if (txtId.Text == "")
             {
-                MessageBox.Show("Informe um ID válido para excluir.", "Excluir", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Campo ID vazio. Digite o campo e tente novamente!");
                 return;
             }
-            var confirmar = MessageBox.Show("Confirma exclusão do produto com ID " + id + "?", "Confirmar exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (confirmar == DialogResult.Yes)
+            else
             {
-                bool excluiu = admin.DeleteProdutoById(id);
-                if (excluiu)
+                try
                 {
-                    MessageBox.Show("Produto excluído com sucesso.", "Excluir", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    // Limpa campos após exclusão
-                    txtId.Clear();
-                    txtNome.Clear();
-                    txtCategoria.Clear();
-                    txtQtd.Clear();
-                    txtQtdIdeal.Clear();
-                    txtUniMed.Clear();
-                    mtxtPreco.Clear();
+                    id = Convert.ToInt32(txtId.Text);
+                    admin.excluirProduto(id);
+                    Limpar();
                 }
-                else
+                catch (FormatException)
                 {
-                    MessageBox.Show("Falha ao excluir. Verifique se o produto existe.", "Excluir", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Preenchida o ID com caracteres.\nRemova os caracteres e preencha com números!");
+                    return;
                 }
             }
         }
 
-        // Ativa/desativa edição dos campos do produto
-        private void SetFieldsEditable(bool editable)
+        public void Limpar()
         {
-            txtNome.ReadOnly = !editable;
-            txtCategoria.ReadOnly = !editable;
-            txtQtd.ReadOnly = !editable;
-            txtQtdIdeal.ReadOnly = !editable;
-            txtUniMed.ReadOnly = !editable;
-            mtxtPreco.ReadOnly = !editable;
-            // Se desejar, pode mudar a aparência para indicar bloqueado:
-            txtNome.BackColor = editable ? SystemColors.Window : SystemColors.Control;
-            txtCategoria.BackColor = editable ? SystemColors.Window : SystemColors.Control;
-            txtQtd.BackColor = editable ? SystemColors.Window : SystemColors.Control;
-            txtQtdIdeal.BackColor = editable ? SystemColors.Window : SystemColors.Control;
-            txtUniMed.BackColor = editable ? SystemColors.Window : SystemColors.Control;
-            mtxtPreco.BackColor = editable ? SystemColors.Window : SystemColors.Control;
+            txtDesc.Clear();
+            txtCategoria.Clear();
+            txtId.Clear();
+            txtPreco.Clear();
+            txtQtd.Clear();
+            txtQtdIdeal.Clear();
+            txtUniMed.Clear();
+            txtId.Focus();
         }
-
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            int id;
-            if (!int.TryParse(txtId.Text.Trim(), out id) || id <= 0)
+            if (txtId.Text == "" || txtDesc.Text == "" || txtCategoria.Text == "" || txtPreco.Text == "" || txtQtd.Text == "" || txtQtdIdeal.Text == "" || txtUniMed.Text == "")
             {
-                MessageBox.Show("Informe um ID válido antes de editar.", "Editar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Campos vazios! Por favor preencha corretamente!");
                 return;
             }
-
-            if (!isEditing)
+            else
             {
-                // habilita edição
-                isEditing = true;
-                btnEditar.Text = "Salvar";
-                SetFieldsEditable(true);
-                txtNome.Focus();
-                return;
-
-                // modo salvar: validar campos e enviar update
-                string nome = txtNome.Text.Trim();
-                string categoria = txtCategoria.Text.Trim();
-                string uniMed = txtUniMed.Text.Trim();
-                int qtd, qtdIdeal;
+                int id, qtd, qtdIdeal;
+                string desc, categoria, uniMed;
                 double preco;
-
-                if (string.IsNullOrWhiteSpace(nome))
+                desc = txtDesc.Text.Trim();
+                categoria = txtCategoria.Text.Trim();
+                uniMed = txtUniMed.Text.Trim();
+                try
                 {
-                    MessageBox.Show("Nome não pode ficar vazio.", "Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtNome.Focus();
-                    return;
+                    id = Convert.ToInt32(txtId.Text);
                 }
-                if (!int.TryParse(txtQtd.Text.Trim(), out qtd))
+                catch (FormatException)
                 {
-                    MessageBox.Show("Quantidade atual inválida.", "Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtQtd.Focus();
-                    return;
-                }
-                if (!int.TryParse(txtQtdIdeal.Text.Trim(), out qtdIdeal))
-                {
-                    MessageBox.Show("Quantidade ideal inválida.", "Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtQtdIdeal.Focus();
+                    MessageBox.Show("ID preenchido com caracteres! Retire e preencha com números e tente novamente.");
                     return;
                 }
 
-                // tenta converter preço, removendo símbolos comuns
-                string precoRaw = mtxtPreco.Text.Trim();
-                precoRaw = precoRaw.Replace("R$", "").Replace("$", "").Replace(" ", "");
-                // aceita vírgula ou ponto como separador
-                precoRaw = precoRaw.Replace(",", ".");
-                if (!double.TryParse(precoRaw, NumberStyles.Any, CultureInfo.InvariantCulture, out preco))
+                try
                 {
-                    MessageBox.Show("Preço inválido.", "Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    mtxtPreco.Focus();
+                    qtd = Convert.ToInt32(txtQtd.Text);
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Quantidade preenchida com caracteres! Retire e preencha com números e tente novamente.");
                     return;
                 }
-                bool atualizado = admin.UpdateProdutoById(id, nome, categoria, qtd, qtdIdeal, uniMed, preco);
-                if (atualizado)
+                try
                 {
-                    MessageBox.Show("Produto atualizado com sucesso.", "Editar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    isEditing = false;
-                    btnEditar.Text = "Editar";
-                    SetFieldsEditable(false);
+                    qtdIdeal = Convert.ToInt32(txtQtdIdeal.Text);
                 }
-                else
+                catch (FormatException)
                 {
-                    MessageBox.Show("Falha ao atualizar produto. Verifique se o ID existe.", "Editar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Quantidade Adequada preenchida com caracteres! Retire e preencha com números e tente novamente.");
+                    return;
+                }
+                try
+                {
+                    preco = Convert.ToDouble(txtPreco.Text);
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Preço preenchido com caracteres! Retire e preencha com números e tente novamente.");
+                    return;
+                }
+
+                try
+                {
+                    ClasseProduto produto = new ClasseProduto(desc, categoria, uniMed, qtd, qtdIdeal, preco);
+                    admin.editarProduto(produto, id);
+                    Limpar();
+                }
+                catch (Exception erro)
+                {
+                    StringBuilder sb = new StringBuilder();
+                    sb.AppendLine("Exceção Desconhecida !!!");
+                    sb.AppendLine(erro.GetType().ToString());
+                    sb.AppendLine(erro.Message);
+                    sb.AppendLine("\n" + erro.StackTrace);
+
+                    MessageBox.Show(sb.ToString());
                 }
             }
+
+        }
+
+        private void btnId_Click(object sender, EventArgs e)
+        {
+            if (txtId.Text == "")
+            {
+                MessageBox.Show("O ID do produto está vazio. por favor preencha corretamente!");
+                return;
+            }
+            else
+            {
+                try
+                {
+                    id = Convert.ToInt32(txtId.Text);
+
+                    string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+                    using (var connection = new MySqlConnection(conexao))
+                    {
+                        connection.Open();
+
+                        string sql = "SELECT descrição, categoria, quantidade_atual, quantidade_adequada, unidade_medida, preço_compra from Produto WHERE idProduto = @id";
+
+                        using (var cmd = new MySqlCommand(sql, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@id", id);
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                if (reader == null)
+                                {
+                                    throw new idNaoEncontradoException();
+                                }
+                                while (reader.Read())
+                                {
+                                    txtDesc.Text = reader.GetString("descrição");
+                                    txtCategoria.Text = reader.GetString("categoria");
+                                    txtQtd.Text = reader.GetInt32("quantidade_atual").ToString();
+                                    txtQtdIdeal.Text = reader.GetInt32("quantidade_adequada").ToString();
+                                    txtUniMed.Text = reader.GetString("unidade_medida");
+                                    txtPreco.Text = reader.GetDouble("preço_compra").ToString();
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Preenchida o ID com caracteres.\nRemova os caracteres e preencha com números!");
+                    return;
+                }
+                catch (idNaoEncontradoException)
+                {
+                    MessageBox.Show("ID não encontrado no Banco de Dados.\nPreencha com outro ID existente!");
+                    return;
+                }
+            }
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            Limpar();
         }
     }
 }
