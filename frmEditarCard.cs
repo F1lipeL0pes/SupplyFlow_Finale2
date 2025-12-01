@@ -72,7 +72,7 @@ namespace SupplyFlow
                 {
                     ClasseCardapio cardapio = new ClasseCardapio(nome, desc, categoria, preco);
                     admin.editarCardapio(cardapio, id);
-                    MessageBox.Show("Produto atualizado com sucesso!");
+                    Limpar();
                 }
                 catch (Exception erro)
                 {
@@ -118,22 +118,20 @@ namespace SupplyFlow
                 {
                     connection.Open();
 
-                    string sql = "SELECT nome, 'descrição', preço, categoria FROM cardapio WHERE idPrato = @id";
+                    string sql = "SELECT nome, descrição, preço, categoria FROM cardapio WHERE idPrato = @id";
 
                     using (var cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@id", id);
                         using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
-                            MessageBox.Show("Reader.HasRows = " + reader.HasRows);
-                            if (!reader.Read())
+                            while (reader.Read())
                             {
-                                throw new idNaoEncontradoException();
+                                txtNome.Text = reader.GetString("nome");
+                                txtDesc.Text = reader.GetString("descrição");
+                                txtPreco.Text = Convert.ToString(reader.GetDouble("preço"));
+                                lboProduto.SelectedItem = reader.GetString("categoria");
                             }
-                            txtNome.Text = reader.GetString("nome");
-                            txtDesc.Text = reader.GetString("descrição");
-                            txtPreco.Text = Convert.ToString(reader.GetDouble("preço"));
-                            lboProduto.SelectedItem = reader.GetString("categoria");
                         }
                     }
 
@@ -165,7 +163,6 @@ namespace SupplyFlow
                     id = Convert.ToInt32(txtId.Text);
                     admin.excluirCardapio(id);
                     Limpar();
-                    MessageBox.Show("Item do Cardápio excluído com sucesso!");
                 }
                 catch (FormatException)
                 {

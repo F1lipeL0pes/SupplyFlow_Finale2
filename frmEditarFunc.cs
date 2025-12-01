@@ -89,7 +89,7 @@ namespace SupplyFlow
                                     txtTelefone.Text = reader.GetString("telefone");
                                     txtCPF.Text = reader.GetString("cpf");
 
-                                };
+                                }
                             }
                         }
 
@@ -149,7 +149,11 @@ namespace SupplyFlow
                 {
                     ClasseFuncionario funcionario = new ClasseFuncionario(nome, cargo, cpf, login, senha, telefone, salario, data_adm);
                     admin.editarFuncionario(funcionario, id);
-                    MessageBox.Show("Funcionário atualizado com sucesso!");
+                    Limpar();
+                }
+                catch (idNaoEncontradoException)
+                {
+                    return;
                 }
                 catch (Exception erro)
                 {
@@ -178,7 +182,6 @@ namespace SupplyFlow
                     id = Convert.ToInt32(txtId.Text);
                     admin.excluirFuncionario(id);
                     Limpar();
-                    MessageBox.Show("Funcionário excluído com sucesso!");
                 }
                 catch (FormatException)
                 {

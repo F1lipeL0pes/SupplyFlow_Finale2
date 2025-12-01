@@ -33,14 +33,14 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.txtId = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
             this.btnId = new System.Windows.Forms.Button();
             this.txtHora = new System.Windows.Forms.TextBox();
             this.lblHora = new System.Windows.Forms.Label();
             this.txtData = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtIdUsuario = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblData = new System.Windows.Forms.Label();
             this.lboMesa = new System.Windows.Forms.ListBox();
@@ -56,7 +56,7 @@
             this.btnVoltar.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltar.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnVoltar.Location = new System.Drawing.Point(716, 0);
-            this.btnVoltar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVoltar.Margin = new System.Windows.Forms.Padding(4);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(197, 66);
             this.btnVoltar.TabIndex = 12;
@@ -82,7 +82,7 @@
             this.panel1.Controls.Add(this.btnVoltar);
             this.panel1.Controls.Add(this.lblTela);
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(913, 66);
             this.panel1.TabIndex = 12;
@@ -95,12 +95,13 @@
             this.btnLimpar.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpar.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnLimpar.Location = new System.Drawing.Point(415, 425);
-            this.btnLimpar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLimpar.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(197, 66);
             this.btnLimpar.TabIndex = 13;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = false;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnEditar
             // 
@@ -110,7 +111,7 @@
             this.btnEditar.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnEditar.Location = new System.Drawing.Point(123, 425);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(197, 66);
             this.btnEditar.TabIndex = 25;
@@ -118,27 +119,27 @@
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
-            // button1
+            // btnExcluir
             // 
-            this.button1.BackColor = System.Drawing.Color.CadetBlue;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(699, 425);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(197, 66);
-            this.button1.TabIndex = 84;
-            this.button1.Text = "Excluir";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnExcluir.BackColor = System.Drawing.Color.CadetBlue;
+            this.btnExcluir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnExcluir.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluir.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnExcluir.Location = new System.Drawing.Point(699, 425);
+            this.btnExcluir.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(197, 66);
+            this.btnExcluir.TabIndex = 84;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtId
             // 
             this.txtId.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId.Location = new System.Drawing.Point(105, 70);
-            this.txtId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtId.Margin = new System.Windows.Forms.Padding(4);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(137, 30);
             this.txtId.TabIndex = 86;
@@ -163,19 +164,19 @@
             this.btnId.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnId.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnId.Location = new System.Drawing.Point(287, 74);
-            this.btnId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnId.Margin = new System.Windows.Forms.Padding(4);
             this.btnId.Name = "btnId";
             this.btnId.Size = new System.Drawing.Size(197, 66);
             this.btnId.TabIndex = 87;
             this.btnId.Text = "Buscar ID";
             this.btnId.UseVisualStyleBackColor = false;
+            this.btnId.Click += new System.EventHandler(this.btnId_Click);
             // 
             // txtHora
             // 
-            this.txtHora.Enabled = false;
             this.txtHora.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHora.Location = new System.Drawing.Point(757, 174);
-            this.txtHora.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtHora.Margin = new System.Windows.Forms.Padding(4);
             this.txtHora.Name = "txtHora";
             this.txtHora.Size = new System.Drawing.Size(92, 30);
             this.txtHora.TabIndex = 95;
@@ -194,23 +195,21 @@
             // 
             // txtData
             // 
-            this.txtData.Enabled = false;
             this.txtData.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtData.Location = new System.Drawing.Point(756, 85);
-            this.txtData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtData.Margin = new System.Windows.Forms.Padding(4);
             this.txtData.Name = "txtData";
             this.txtData.Size = new System.Drawing.Size(116, 30);
             this.txtData.TabIndex = 93;
             // 
-            // textBox1
+            // txtIdUsuario
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(757, 273);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(92, 30);
-            this.textBox1.TabIndex = 92;
+            this.txtIdUsuario.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdUsuario.Location = new System.Drawing.Point(757, 273);
+            this.txtIdUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.txtIdUsuario.Name = "txtIdUsuario";
+            this.txtIdUsuario.Size = new System.Drawing.Size(92, 30);
+            this.txtIdUsuario.TabIndex = 92;
             // 
             // label2
             // 
@@ -244,7 +243,7 @@
             this.lboMesa.FormattingEnabled = true;
             this.lboMesa.ItemHeight = 23;
             this.lboMesa.Location = new System.Drawing.Point(157, 171);
-            this.lboMesa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lboMesa.Margin = new System.Windows.Forms.Padding(4);
             this.lboMesa.Name = "lboMesa";
             this.lboMesa.Size = new System.Drawing.Size(249, 209);
             this.lboMesa.TabIndex = 89;
@@ -271,7 +270,7 @@
             this.Controls.Add(this.txtHora);
             this.Controls.Add(this.lblHora);
             this.Controls.Add(this.txtData);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtIdUsuario);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblData);
             this.Controls.Add(this.lboMesa);
@@ -279,15 +278,16 @@
             this.Controls.Add(this.btnId);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.lblId);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmEditarVenda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar Venda";
+            this.Load += new System.EventHandler(this.frmEditarVenda_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -302,14 +302,14 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.Button btnId;
         private System.Windows.Forms.TextBox txtHora;
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.TextBox txtData;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtIdUsuario;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblData;
         private System.Windows.Forms.ListBox lboMesa;

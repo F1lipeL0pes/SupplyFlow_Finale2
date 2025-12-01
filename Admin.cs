@@ -235,6 +235,42 @@ namespace SupplyFlow
             }
         }
 
+        public void cadastrarItemVenda(ClasseItemVenda itemVenda)
+        {
+            try
+            {
+                using (var connectionBD = new MySqlConnection(connectionStr))
+                using (var commBD = connectionBD.CreateCommand())
+                {
+                    connectionBD.Open();
+                    commBD.CommandText = @"INSERT INTO Itens_Venda (quantidade, idVenda, idPrato) 
+                                   VALUES (@quantidade, @idVenda, @idPrato)";
+                    commBD.Parameters.AddWithValue("@quantidade", itemVenda.getQuantidade());
+                    commBD.Parameters.AddWithValue("@idVenda", itemVenda.getIdVenda());
+                    commBD.Parameters.AddWithValue("@idPrato", itemVenda.getIdPrato());
+
+                    commBD.ExecuteNonQuery();
+                }
+            }
+            catch (MySqlException erro)
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine("Erro Banco!");
+                sb.AppendLine(erro.GetType().ToString());
+                sb.AppendLine(erro.Message);
+                sb.AppendLine("\n" + erro.StackTrace);
+                MessageBox.Show(sb.ToString());
+            }
+            catch (Exception erro)
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine("Exceção Desconhecida !!!");
+                sb.AppendLine(erro.GetType().ToString());
+                sb.AppendLine(erro.Message);
+                sb.AppendLine("\n" + erro.StackTrace);
+                MessageBox.Show(sb.ToString());
+            }
+        }
         // Produtos - Relatórios
         public DataTable RelatorioNome(string nome)
         {
@@ -502,42 +538,7 @@ namespace SupplyFlow
             return dt;
         }
 
-        public void cadastrarItemVenda(ClasseItemVenda itemVenda)
-        {
-            try
-            {
-                using (var connectionBD = new MySqlConnection(connectionStr))
-                using (var commBD = connectionBD.CreateCommand())
-                {
-                    connectionBD.Open();
-                    commBD.CommandText = @"INSERT INTO Itens_Venda (quantidade, idVenda, idPrato) 
-                                   VALUES (@quantidade, @idVenda, @idPrato)";
-                    commBD.Parameters.AddWithValue("@quantidade", itemVenda.getQuantidade());
-                    commBD.Parameters.AddWithValue("@idVenda", itemVenda.getIdVenda());
-                    commBD.Parameters.AddWithValue("@idPrato", itemVenda.getIdPrato());
-
-                    commBD.ExecuteNonQuery();
-                }
-            }
-            catch (MySqlException erro)
-            {
-                var sb = new StringBuilder();
-                sb.AppendLine("Erro Banco!");
-                sb.AppendLine(erro.GetType().ToString());
-                sb.AppendLine(erro.Message);
-                sb.AppendLine("\n" + erro.StackTrace);
-                MessageBox.Show(sb.ToString());
-            }
-            catch (Exception erro)
-            {
-                var sb = new StringBuilder();
-                sb.AppendLine("Exceção Desconhecida !!!");
-                sb.AppendLine(erro.GetType().ToString());
-                sb.AppendLine(erro.Message);
-                sb.AppendLine("\n" + erro.StackTrace);
-                MessageBox.Show(sb.ToString());
-            }
-        }
+        
 
         //EDIÇÕES
         public void editarCardapio(ClasseCardapio cardapio, int id)
@@ -553,7 +554,7 @@ namespace SupplyFlow
 
                     string sql = @"UPDATE cardapio 
                        SET nome = @nome,
-                           descrição = @descricao,
+                           descrição = @desc,
                            preço = @preco,
                            categoria = @categoria
                        WHERE idPrato = @id";
@@ -561,7 +562,7 @@ namespace SupplyFlow
                     using (var cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@nome", cardapio.getNome());
-                        cmd.Parameters.AddWithValue("@descricao", cardapio.getDesc());
+                        cmd.Parameters.AddWithValue("@desc", cardapio.getDesc());
                         cmd.Parameters.AddWithValue("@preco", cardapio.getPreco());
                         cmd.Parameters.AddWithValue("@categoria", cardapio.getCategoria());
                         cmd.Parameters.AddWithValue("@id", id);
@@ -570,8 +571,9 @@ namespace SupplyFlow
 
                         if (linhasAfetadas == 0)
                         {
-                            MessageBox.Show("Nenhum registro foi alterado. ID não encontrado.");
+                            throw (new idNaoEncontradoException());
                         }
+                        MessageBox.Show("Item do Cardápio atualizado com sucesso!");
                     }
                 }
             }
@@ -583,6 +585,10 @@ namespace SupplyFlow
                 sb.AppendLine(erro.Message);
                 sb.AppendLine("\n" + erro.StackTrace);
                 MessageBox.Show(sb.ToString());
+            }
+            catch (idNaoEncontradoException)
+            {
+                MessageBox.Show("ID não encontrado!");
             }
             catch (Exception erro)
             {
@@ -622,8 +628,9 @@ namespace SupplyFlow
 
                         if (linhasAfetadas == 0)
                         {
-                            MessageBox.Show("Nenhum registro foi alterado. ID não encontrado.");
+                            throw (new idNaoEncontradoException());
                         }
+                        MessageBox.Show("Insumo atualizado com sucesso!");
                     }
                 }
             }
@@ -635,6 +642,10 @@ namespace SupplyFlow
                 sb.AppendLine(erro.Message);
                 sb.AppendLine("\n" + erro.StackTrace);
                 MessageBox.Show(sb.ToString());
+            }
+            catch (idNaoEncontradoException)
+            {
+                MessageBox.Show("ID não encontrado!");
             }
             catch (Exception erro)
             {
@@ -674,8 +685,9 @@ namespace SupplyFlow
 
                         if (linhasAfetadas == 0)
                         {
-                            MessageBox.Show("Nenhum registro foi alterado. ID não encontrado.");
+                            throw (new idNaoEncontradoException());
                         }
+                        MessageBox.Show("Item da Venda atualizado com sucesso!");
                     }
                 }
             }
@@ -687,6 +699,10 @@ namespace SupplyFlow
                 sb.AppendLine(erro.Message);
                 sb.AppendLine("\n" + erro.StackTrace);
                 MessageBox.Show(sb.ToString());
+            }
+            catch (idNaoEncontradoException)
+            {
+                MessageBox.Show("ID não encontrado!");
             }
             catch (Exception erro)
             {
@@ -735,8 +751,9 @@ namespace SupplyFlow
 
                         if (linhasAfetadas == 0)
                         {
-                            MessageBox.Show("Nenhum registro foi alterado. ID não encontrado.");
+                            throw (new idNaoEncontradoException());
                         }
+                        MessageBox.Show("Funcionário atualizado com sucesso!");
                     }
                 }
             }
@@ -748,6 +765,68 @@ namespace SupplyFlow
                 sb.AppendLine(erro.Message);
                 sb.AppendLine("\n" + erro.StackTrace);
                 MessageBox.Show(sb.ToString());
+            }
+            catch (idNaoEncontradoException)
+            {
+                MessageBox.Show("ID não encontrado!");
+            }
+            catch (Exception erro)
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine("Exceção Desconhecida !!!");
+                sb.AppendLine(erro.GetType().ToString());
+                sb.AppendLine(erro.Message);
+                sb.AppendLine("\n" + erro.StackTrace);
+                MessageBox.Show(sb.ToString());
+            }
+        }
+        public void editarVenda(ClasseVenda venda, int id)
+        {
+            try
+            {
+                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+
+                using (var connection = new MySqlConnection(conexao))
+                {
+                    connection.Open();
+
+                    string sql = @"UPDATE Venda
+                       SET data_venda = @data,
+                            hora_venda = @hora,
+                            idUsuario = @idU,
+                            idMesa = @idMesa
+                       WHERE idVenda = @id";
+
+                    using (var cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@data", venda.getData());
+                        cmd.Parameters.AddWithValue("@hora", venda.getHora());
+                        cmd.Parameters.AddWithValue("@idU", venda.getIdUsuario());
+                        cmd.Parameters.AddWithValue("@idMesa", venda.getIdMesa());
+
+                        int linhasAfetadas = cmd.ExecuteNonQuery();
+
+                        if (linhasAfetadas == 0)
+                        {
+                            throw (new idNaoEncontradoException());
+                        }
+                        MessageBox.Show("Funcionário atualizado com sucesso!");
+                    }
+                }
+            }
+            catch (MySqlException erro)
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine("Erro Banco!");
+                sb.AppendLine(erro.GetType().ToString());
+                sb.AppendLine(erro.Message);
+                sb.AppendLine("\n" + erro.StackTrace);
+                MessageBox.Show(sb.ToString());
+            }
+            catch (idNaoEncontradoException)
+            {
+                MessageBox.Show("ID não encontrado!");
             }
             catch (Exception erro)
             {
@@ -780,8 +859,9 @@ namespace SupplyFlow
 
                         if (linhasAfetadas == 0)
                         {
-                            MessageBox.Show("Nenhum registro foi alterado. ID não encontrado.");
+                            throw (new idNaoEncontradoException());
                         }
+                        MessageBox.Show("Funcionário excluído com sucesso!");
                     }
                 }
             }
@@ -793,6 +873,10 @@ namespace SupplyFlow
                 sb.AppendLine(erro.Message);
                 sb.AppendLine("\n" + erro.StackTrace);
                 MessageBox.Show(sb.ToString());
+            }
+            catch (idNaoEncontradoException)
+            {
+                MessageBox.Show("ID não encontrado!");
             }
             catch (Exception erro)
             {
@@ -825,8 +909,9 @@ namespace SupplyFlow
 
                         if (linhasAfetadas == 0)
                         {
-                            MessageBox.Show("Nenhum registro foi alterado. ID não encontrado.");
+                            throw (new idNaoEncontradoException());
                         }
+                        MessageBox.Show("Item do Cardápio excluído com sucesso!");
                     }
                 }
             }
@@ -838,6 +923,10 @@ namespace SupplyFlow
                 sb.AppendLine(erro.Message);
                 sb.AppendLine("\n" + erro.StackTrace);
                 MessageBox.Show(sb.ToString());
+            }
+            catch (idNaoEncontradoException)
+            {
+                MessageBox.Show("ID naão encontrado");
             }
             catch (Exception erro)
             {
@@ -870,8 +959,9 @@ namespace SupplyFlow
 
                         if (linhasAfetadas == 0)
                         {
-                            MessageBox.Show("Nenhum registro foi alterado. ID não encontrado.");
+                            throw (new idNaoEncontradoException());
                         }
+                        MessageBox.Show("Insumo excluído com sucesso!");
                     }
                 }
             }
@@ -883,6 +973,10 @@ namespace SupplyFlow
                 sb.AppendLine(erro.Message);
                 sb.AppendLine("\n" + erro.StackTrace);
                 MessageBox.Show(sb.ToString());
+            }
+            catch (idNaoEncontradoException)
+            {
+                MessageBox.Show("ID naão encontrado");
             }
             catch (Exception erro)
             {
@@ -915,8 +1009,9 @@ namespace SupplyFlow
 
                         if (linhasAfetadas == 0)
                         {
-                            MessageBox.Show("Nenhum registro foi alterado. ID não encontrado.");
+                            throw (new idNaoEncontradoException());
                         }
+                        MessageBox.Show("Item da Venda excluído com sucesso!");
                     }
                 }
             }
@@ -928,6 +1023,10 @@ namespace SupplyFlow
                 sb.AppendLine(erro.Message);
                 sb.AppendLine("\n" + erro.StackTrace);
                 MessageBox.Show(sb.ToString());
+            }
+            catch (idNaoEncontradoException)
+            {
+                MessageBox.Show("ID naão encontrado");
             }
             catch (Exception erro)
             {
@@ -960,8 +1059,9 @@ namespace SupplyFlow
 
                         if (linhasAfetadas == 0)
                         {
-                            MessageBox.Show("Nenhum registro foi alterado. ID não encontrado.");
+                            throw (new idNaoEncontradoException());
                         }
+                        MessageBox.Show("Venda excluída com sucesso!");
                     }
                 }
             }
@@ -973,6 +1073,10 @@ namespace SupplyFlow
                 sb.AppendLine(erro.Message);
                 sb.AppendLine("\n" + erro.StackTrace);
                 MessageBox.Show(sb.ToString());
+            }
+            catch (idNaoEncontradoException)
+            {
+                MessageBox.Show("ID não encontrado");
             }
             catch (Exception erro)
             {

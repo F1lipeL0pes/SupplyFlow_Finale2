@@ -31,8 +31,8 @@ namespace SupplyFlow
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            frmGerente gerente = new frmGerente(admin, idUsuario, cargo);
-            gerente.Show();
+            frmVendas garcom = new frmVendas(admin, idUsuario, cargo);
+            garcom.Show();
             this.Close();
         }
 
@@ -190,7 +190,6 @@ namespace SupplyFlow
                                         }
                                     }
                                 }
-                                ;
                             }
                         }
                     }
@@ -260,9 +259,8 @@ namespace SupplyFlow
                 }
                 try
                 {
-                    ClasseInsumo insumo = new ClasseInsumo(qtd, idVenda, idPrato);
-                    admin.editarInsumo(insumo, id);
-                    MessageBox.Show("Produto atualizado com sucesso!");
+                    ClasseItemVenda itemVenda = new ClasseItemVenda(idVenda, qtd, idPrato);
+                    admin.editarItemvenda(itemVenda, id);
                     Limpar();
                 }
                 catch (Exception erro)
@@ -321,7 +319,6 @@ namespace SupplyFlow
                     id = Convert.ToInt32(txtId.Text);
                     admin.excluirItemVenda(id);
                     Limpar();
-                    MessageBox.Show("item da Venda excluído com sucesso!");
                 }
                 catch (FormatException)
                 {

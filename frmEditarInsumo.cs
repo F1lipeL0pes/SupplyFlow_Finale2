@@ -155,7 +155,6 @@ namespace SupplyFlow
                                         }
                                     }
                                 }
-                                ;
                             }
                         }
 
@@ -236,7 +235,6 @@ namespace SupplyFlow
                 {
                     ClasseInsumo insumo = new ClasseInsumo(qtd, idProduto, idPrato);
                     admin.editarInsumo(insumo, id);
-                    MessageBox.Show("Produto atualizado com sucesso!");
                     Limpar();
                 }
                 catch (Exception erro)
@@ -275,7 +273,6 @@ namespace SupplyFlow
                     id = Convert.ToInt32(txtId.Text);
                     admin.excluirInsumo(id);
                     Limpar();
-                    MessageBox.Show("Insumo excluído com sucesso!");
                 }
                 catch (FormatException)
                 {
