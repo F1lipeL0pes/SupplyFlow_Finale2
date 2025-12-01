@@ -4,6 +4,7 @@ using System.Data;
 using System.Text;
 using System.Windows.Forms;
 using static SupplyFlow.frmCadInsumo;
+using static SupplyFlow.frmRelQuantidade;
 
 namespace SupplyFlow
 {
@@ -901,7 +902,122 @@ namespace SupplyFlow
                 MessageBox.Show(sb.ToString());
             }
         }
+        public void editarpagamento(ClassePagamento pag, int id)
+        {
+            try
+            {
+                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
 
+                using (var connection = new MySqlConnection(conexao))
+                {
+                    connection.Open();
+
+                    string sql = @"UPDATE Pagamento
+                       SET tipo_pagamento = @tipo,
+                            data_hora = @dth,
+                            valor = @valor,
+                            statusPg = @status,
+                            idVenda = @idVenda
+                       WHERE idPagamento = @id";
+
+                    using (var cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@tipo", pag.getTipo());
+                        cmd.Parameters.AddWithValue("@dth", pag.getDataHora());
+                        cmd.Parameters.AddWithValue("@valor", pag.getValor());
+                        cmd.Parameters.AddWithValue("@status", pag.getStatus());
+                        cmd.Parameters.AddWithValue("@idVenda", pag.getIdVenda());
+
+                        int linhasAfetadas = cmd.ExecuteNonQuery();
+
+                        if (linhasAfetadas == 0)
+                        {
+                            throw (new idNaoEncontradoException());
+                        }
+                        MessageBox.Show("Pagamento atualizado com sucesso!");
+                    }
+                }
+            }
+            catch (MySqlException erro)
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine("Erro Banco!");
+                sb.AppendLine(erro.GetType().ToString());
+                sb.AppendLine(erro.Message);
+                sb.AppendLine("\n" + erro.StackTrace);
+                MessageBox.Show(sb.ToString());
+            }
+            catch (idNaoEncontradoException)
+            {
+                MessageBox.Show("ID não encontrado!");
+            }
+            catch (Exception erro)
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine("Exceção Desconhecida !!!");
+                sb.AppendLine(erro.GetType().ToString());
+                sb.AppendLine(erro.Message);
+                sb.AppendLine("\n" + erro.StackTrace);
+                MessageBox.Show(sb.ToString());
+            }
+        }
+        public void editarMesa(ClasseMesa mesa, int id)
+        {
+            try
+            {
+                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+
+                using (var connection = new MySqlConnection(conexao))
+                {
+                    connection.Open();
+
+                    string sql = @"UPDATE Mesa
+                       SET numero = @num,
+                            capacidade = @cap,
+                            status = @status
+                       WHERE idMesa = @id";
+
+                    using (var cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@num", mesa.getNum());
+                        cmd.Parameters.AddWithValue("@cap", mesa.getCapacidade());
+                        cmd.Parameters.AddWithValue("@status", mesa.getStatus());
+
+                        int linhasAfetadas = cmd.ExecuteNonQuery();
+
+                        if (linhasAfetadas == 0)
+                        {
+                            throw (new idNaoEncontradoException());
+                        }
+                        MessageBox.Show("Mesa atualizada com sucesso!");
+                    }
+                }
+            }
+            catch (MySqlException erro)
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine("Erro Banco!");
+                sb.AppendLine(erro.GetType().ToString());
+                sb.AppendLine(erro.Message);
+                sb.AppendLine("\n" + erro.StackTrace);
+                MessageBox.Show(sb.ToString());
+            }
+            catch (idNaoEncontradoException)
+            {
+                MessageBox.Show("ID não encontrado!");
+            }
+            catch (Exception erro)
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine("Exceção Desconhecida !!!");
+                sb.AppendLine(erro.GetType().ToString());
+                sb.AppendLine(erro.Message);
+                sb.AppendLine("\n" + erro.StackTrace);
+                MessageBox.Show(sb.ToString());
+            }
+        }
 
         //EXCLUSÕES
         public void excluirFuncionario(int id)
@@ -1177,7 +1293,7 @@ namespace SupplyFlow
                         {
                             throw (new idNaoEncontradoException());
                         }
-                        MessageBox.Show("Produto excluída com sucesso!");
+                        MessageBox.Show("Produto excluído com sucesso!");
                     }
                 }
             }
@@ -1204,8 +1320,109 @@ namespace SupplyFlow
                 MessageBox.Show(sb.ToString());
             }
         }
-    
+        public void excluirMesa(int id)
+        {
+            try
+            {
+                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+
+                using (var connection = new MySqlConnection(conexao))
+                {
+                    connection.Open();
+
+                    string sql = @"DELETE from Mesa
+                       WHERE idMesa = @id";
+
+                    using (var cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+
+                        int linhasAfetadas = cmd.ExecuteNonQuery();
+
+                        if (linhasAfetadas == 0)
+                        {
+                            throw (new idNaoEncontradoException());
+                        }
+                        MessageBox.Show("Mesa excluída com sucesso!");
+                    }
+                }
+            }
+            catch (MySqlException erro)
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine("Erro Banco!");
+                sb.AppendLine(erro.GetType().ToString());
+                sb.AppendLine(erro.Message);
+                sb.AppendLine("\n" + erro.StackTrace);
+                MessageBox.Show(sb.ToString());
+            }
+            catch (idNaoEncontradoException)
+            {
+                MessageBox.Show("ID não encontrado");
+            }
+            catch (Exception erro)
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine("Exceção Desconhecida !!!");
+                sb.AppendLine(erro.GetType().ToString());
+                sb.AppendLine(erro.Message);
+                sb.AppendLine("\n" + erro.StackTrace);
+                MessageBox.Show(sb.ToString());
+            }
+        }
+        public void excluirPagamento(int id)
+        {
+            try
+            {
+                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+
+                using (var connection = new MySqlConnection(conexao))
+                {
+                    connection.Open();
+
+                    string sql = @"DELETE from Pagamento
+                       WHERE idPagamento = @id";
+
+                    using (var cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+
+                        int linhasAfetadas = cmd.ExecuteNonQuery();
+
+                        if (linhasAfetadas == 0)
+                        {
+                            throw (new idNaoEncontradoException());
+                        }
+                        MessageBox.Show("Pagamento excluído com sucesso!");
+                    }
+                }
+            }
+            catch (MySqlException erro)
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine("Erro Banco!");
+                sb.AppendLine(erro.GetType().ToString());
+                sb.AppendLine(erro.Message);
+                sb.AppendLine("\n" + erro.StackTrace);
+                MessageBox.Show(sb.ToString());
+            }
+            catch (idNaoEncontradoException)
+            {
+                MessageBox.Show("ID não encontrado");
+            }
+            catch (Exception erro)
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine("Exceção Desconhecida !!!");
+                sb.AppendLine(erro.GetType().ToString());
+                sb.AppendLine(erro.Message);
+                sb.AppendLine("\n" + erro.StackTrace);
+                MessageBox.Show(sb.ToString());
+            }
+        }
     }
+    
+    
     
     
 }

@@ -157,6 +157,12 @@
     <Compile Include="frmCadMesa.Designer.cs">
       <DependentUpon>frmCadMesa.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCardapio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCardapio.Designer.cs">
+      <DependentUpon>frmCardapio.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEditarCard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +186,18 @@
     </Compile>
     <Compile Include="frmEditarItemVenda.Designer.cs">
       <DependentUpon>frmEditarItemVenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditMesa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditMesa.Designer.cs">
+      <DependentUpon>frmEditMesa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditPag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditPag.Designer.cs">
+      <DependentUpon>frmEditPag.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -290,6 +308,9 @@
     <EmbeddedResource Include="frmCadMesa.resx">
       <DependentUpon>frmCadMesa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCardapio.resx">
+      <DependentUpon>frmCardapio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEditarCard.resx">
       <DependentUpon>frmEditarCard.cs</DependentUpon>
     </EmbeddedResource>
@@ -301,6 +322,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditarItemVenda.resx">
       <DependentUpon>frmEditarItemVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditMesa.resx">
+      <DependentUpon>frmEditMesa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditPag.resx">
+      <DependentUpon>frmEditPag.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

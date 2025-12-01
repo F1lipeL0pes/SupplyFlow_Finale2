@@ -102,5 +102,12 @@ namespace SupplyFlow
             editFunc.Show();
             this.Close();
         }
+
+        private void btnEditarMesa_Click(object sender, EventArgs e)
+        {
+            frmEditMesa editMesa = new frmEditMesa(admin, idUsuario, cargo);
+            editMesa.Show();
+            this.Close();
+        }
     }
 }

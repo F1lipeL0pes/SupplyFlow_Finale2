@@ -4,38 +4,47 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static SupplyFlow.frmEditarItemVenda;
+using static SupplyFlow.frmEditarVenda;
 
 namespace SupplyFlow
 {
-    public partial class frmEditarProduto : Form
+    public partial class frmEditPag : Form
     {
         private Admin admin;
-        private bool isEditing = false;
+        private int id;
         private int idUsuario;
         private string cargo;
-        private int id;
-        public frmEditarProduto(Admin admin, int idusuario, string cargo)
+        public frmEditPag(Admin admin, int idUsuario, string cargo)
         {
-            this.admin = new Admin();
             InitializeComponent();
-
-            this.idUsuario = idusuario;
+            this.admin = admin;
+            this.idUsuario = idUsuario;
             this.cargo = cargo;
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            Limpar();
+        }
+        public void Limpar()
+        {
+            txtDataHora.Clear();
+            txtId.Clear();
+            txtIDVenda.Clear();
+            txtValor.Clear();
+            txtId.Focus();
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            frmEstoque estoque = new frmEstoque(admin, idUsuario, cargo);
-            estoque.Show();
+            frmVendas garcom = new frmVendas(admin, idUsuario, cargo);
+            garcom.Show();
             this.Close();
         }
-
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
@@ -49,7 +58,7 @@ namespace SupplyFlow
                 try
                 {
                     id = Convert.ToInt32(txtId.Text);
-                    admin.excluirProduto(id);
+                    admin.excluirPagamento(id);
                     Limpar();
                 }
                 catch (FormatException)
@@ -60,32 +69,19 @@ namespace SupplyFlow
             }
         }
 
-        public void Limpar()
-        {
-            txtDesc.Clear();
-            txtCategoria.Clear();
-            txtId.Clear();
-            txtPreco.Clear();
-            txtQtd.Clear();
-            txtQtdIdeal.Clear();
-            txtUniMed.Clear();
-            txtId.Focus();
-        }
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (txtId.Text == "" || txtDesc.Text == "" || txtCategoria.Text == "" || txtPreco.Text == "" || txtQtd.Text == "" || txtQtdIdeal.Text == "" || txtUniMed.Text == "")
+            if (txtId.Text == "" || txtDataHora.Text == "" || txtIDVenda.Text == "" || txtValor.Text == "" || lboStatus.Text == "" || lboTipo.Text == "")
             {
-                MessageBox.Show("Campos vazios! Por favor preencha corretamente!");
+                MessageBox.Show("Campos vazios!. Por favor preencha corretamente!");
                 return;
             }
             else
             {
-                int id, qtd, qtdIdeal;
-                string desc, categoria, uniMed;
-                double preco;
-                desc = txtDesc.Text.Trim();
-                categoria = txtCategoria.Text.Trim();
-                uniMed = txtUniMed.Text.Trim();
+                int id, idVenda;
+                double valor;
+                string status, tipo;
+                DateTime datah;
                 try
                 {
                     id = Convert.ToInt32(txtId.Text);
@@ -95,39 +91,39 @@ namespace SupplyFlow
                     MessageBox.Show("ID preenchido com caracteres! Retire e preencha com números e tente novamente.");
                     return;
                 }
-
                 try
                 {
-                    qtd = Convert.ToInt32(txtQtd.Text);
+                    idVenda = Convert.ToInt32(txtIDVenda.Text);
                 }
                 catch (FormatException)
                 {
-                    MessageBox.Show("Quantidade preenchida com caracteres! Retire e preencha com números e tente novamente.");
+                    MessageBox.Show("IDVenda preenchido com caracteres! Retire e preencha com números e tente novamente.");
                     return;
                 }
                 try
                 {
-                    qtdIdeal = Convert.ToInt32(txtQtdIdeal.Text);
+                    datah = Convert.ToDateTime(txtDataHora.Text);
                 }
                 catch (FormatException)
                 {
-                    MessageBox.Show("Quantidade Adequada preenchida com caracteres! Retire e preencha com números e tente novamente.");
+                    MessageBox.Show("Data inválida!");
                     return;
                 }
                 try
                 {
-                    preco = Convert.ToDouble(txtPreco.Text);
+                    valor = Convert.ToDouble(txtValor.Text);
                 }
                 catch (FormatException)
                 {
-                    MessageBox.Show("Preço preenchido com caracteres! Retire e preencha com números e tente novamente.");
+                    MessageBox.Show("Valor preenchido com caracteres! Retire e preencha com números e tente novamente.");
                     return;
                 }
-
+                status = lboStatus.SelectedItem.ToString();
+                tipo = lboTipo.SelectedItem.ToString();
                 try
                 {
-                    ClasseProduto produto = new ClasseProduto(desc, categoria, uniMed, qtd, qtdIdeal, preco);
-                    admin.editarProduto(produto, id);
+                    ClassePagamento pag = new ClassePagamento(idVenda, tipo, status, valor, datah);
+                    admin.editarpagamento(pag, id);
                     Limpar();
                 }
                 catch (Exception erro)
@@ -141,14 +137,13 @@ namespace SupplyFlow
                     MessageBox.Show(sb.ToString());
                 }
             }
-
         }
 
         private void btnId_Click(object sender, EventArgs e)
         {
             if (txtId.Text == "")
             {
-                MessageBox.Show("O ID do produto está vazio. por favor preencha corretamente!");
+                MessageBox.Show("O ID está vazio. por favor preencha corretamente!");
                 return;
             }
             else
@@ -162,7 +157,7 @@ namespace SupplyFlow
                     {
                         connection.Open();
 
-                        string sql = "SELECT descrição, categoria, quantidade_atual, quantidade_adequada, unidade_medida, preço_compra from Produto WHERE idProduto = @id";
+                        string sql = "SELECT tipo_pagamento, data_hora, valor, statusPg, idVenda from Pagamento WHERE idPagamento = @id";
 
                         using (var cmd = new MySqlCommand(sql, connection))
                         {
@@ -175,12 +170,11 @@ namespace SupplyFlow
                                 }
                                 while (reader.Read())
                                 {
-                                    txtDesc.Text = reader.GetString("descrição");
-                                    txtCategoria.Text = reader.GetString("categoria");
-                                    txtQtd.Text = reader.GetInt32("quantidade_atual").ToString();
-                                    txtQtdIdeal.Text = reader.GetInt32("quantidade_adequada").ToString();
-                                    txtUniMed.Text = reader.GetString("unidade_medida");
-                                    txtPreco.Text = reader.GetDouble("preço_compra").ToString();
+                                    txtDataHora.Text = reader.GetDateTime("data_hora").ToString();
+                                    txtIDVenda.Text = reader.GetInt32("idVenda").ToString();
+                                    txtValor.Text = reader.GetDouble("valor").ToString();
+                                    lboStatus.SelectedItem = reader.GetString("statusPg");
+                                    lboTipo.SelectedItem = reader.GetString("tipo_pagamento");
                                 }
                             }
                         }
@@ -197,16 +191,6 @@ namespace SupplyFlow
                     return;
                 }
             }
-        }
-
-        private void btnLimpar_Click(object sender, EventArgs e)
-        {
-            Limpar();
-        }
-
-        private void frmEditarProduto_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

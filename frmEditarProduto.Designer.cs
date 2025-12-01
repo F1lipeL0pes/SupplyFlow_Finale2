@@ -58,7 +58,7 @@
             this.panel1.Controls.Add(this.btnVoltar);
             this.panel1.Controls.Add(this.lblTela);
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(913, 66);
             this.panel1.TabIndex = 15;
@@ -71,7 +71,7 @@
             this.btnVoltar.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltar.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnVoltar.Location = new System.Drawing.Point(716, 0);
-            this.btnVoltar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVoltar.Margin = new System.Windows.Forms.Padding(4);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(197, 66);
             this.btnVoltar.TabIndex = 12;
@@ -95,7 +95,7 @@
             // 
             this.txtUniMed.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUniMed.Location = new System.Drawing.Point(703, 277);
-            this.txtUniMed.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUniMed.Margin = new System.Windows.Forms.Padding(4);
             this.txtUniMed.Name = "txtUniMed";
             this.txtUniMed.Size = new System.Drawing.Size(168, 30);
             this.txtUniMed.TabIndex = 42;
@@ -104,7 +104,7 @@
             // 
             this.txtQtdIdeal.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQtdIdeal.Location = new System.Drawing.Point(271, 348);
-            this.txtQtdIdeal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtQtdIdeal.Margin = new System.Windows.Forms.Padding(4);
             this.txtQtdIdeal.Name = "txtQtdIdeal";
             this.txtQtdIdeal.Size = new System.Drawing.Size(137, 30);
             this.txtQtdIdeal.TabIndex = 41;
@@ -113,7 +113,7 @@
             // 
             this.txtQtd.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQtd.Location = new System.Drawing.Point(271, 281);
-            this.txtQtd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtQtd.Margin = new System.Windows.Forms.Padding(4);
             this.txtQtd.Name = "txtQtd";
             this.txtQtd.Size = new System.Drawing.Size(137, 30);
             this.txtQtd.TabIndex = 40;
@@ -122,7 +122,7 @@
             // 
             this.txtCategoria.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCategoria.Location = new System.Drawing.Point(271, 218);
-            this.txtCategoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCategoria.Margin = new System.Windows.Forms.Padding(4);
             this.txtCategoria.Name = "txtCategoria";
             this.txtCategoria.Size = new System.Drawing.Size(600, 30);
             this.txtCategoria.TabIndex = 39;
@@ -131,7 +131,7 @@
             // 
             this.txtDesc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDesc.Location = new System.Drawing.Point(271, 148);
-            this.txtDesc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDesc.Margin = new System.Windows.Forms.Padding(4);
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(600, 30);
             this.txtDesc.TabIndex = 38;
@@ -144,7 +144,7 @@
             this.btnExcluir.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcluir.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnExcluir.Location = new System.Drawing.Point(675, 425);
-            this.btnExcluir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExcluir.Margin = new System.Windows.Forms.Padding(4);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(197, 66);
             this.btnExcluir.TabIndex = 37;
@@ -160,7 +160,7 @@
             this.btnEditar.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnEditar.Location = new System.Drawing.Point(121, 425);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(197, 66);
             this.btnEditar.TabIndex = 30;
@@ -329,10 +329,11 @@
             this.Controls.Add(this.lblDesc);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmEditarProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar Produto";
+            this.Load += new System.EventHandler(this.frmEditarProduto_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

@@ -44,7 +44,9 @@ namespace SupplyFlow
 
         private void btnCardapio_Click(object sender, EventArgs e)
         {
-
+            frmCardapio cardapio = new frmCardapio(admin, idUsuario, cargo);
+            cardapio.Show();
+            this.Close();
         }
 
         private void btnEditarVenda_Click(object sender, EventArgs e)
@@ -93,6 +95,13 @@ namespace SupplyFlow
         {
             frmEditarItemVenda editItemV = new frmEditarItemVenda(admin, idUsuario, cargo);
             editItemV.Show();
+            this.Close();
+        }
+
+        private void btnEditPag_Click(object sender, EventArgs e)
+        {
+            frmEditPag editPag = new frmEditPag(admin, idUsuario, cargo);
+            editPag.Show();
             this.Close();
         }
     }

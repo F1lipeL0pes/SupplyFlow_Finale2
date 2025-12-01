@@ -51,8 +51,9 @@
             this.panel1.Controls.Add(this.btnSair);
             this.panel1.Controls.Add(this.lblTela);
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1277, 54);
+            this.panel1.Size = new System.Drawing.Size(1703, 66);
             this.panel1.TabIndex = 21;
             // 
             // btnSair
@@ -62,9 +63,10 @@
             this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSair.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnSair.Location = new System.Drawing.Point(1128, 0);
+            this.btnSair.Location = new System.Drawing.Point(1504, 0);
+            this.btnSair.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(148, 54);
+            this.btnSair.Size = new System.Drawing.Size(197, 66);
             this.btnSair.TabIndex = 12;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
@@ -75,7 +77,8 @@
             this.lblTela.AutoSize = true;
             this.lblTela.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTela.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblTela.Location = new System.Drawing.Point(3, 15);
+            this.lblTela.Location = new System.Drawing.Point(4, 18);
+            this.lblTela.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTela.Name = "lblTela";
             this.lblTela.Size = new System.Drawing.Size(131, 32);
             this.lblTela.TabIndex = 2;
@@ -88,9 +91,10 @@
             this.btnCardapio.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCardapio.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCardapio.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnCardapio.Location = new System.Drawing.Point(481, 287);
+            this.btnCardapio.Location = new System.Drawing.Point(641, 353);
+            this.btnCardapio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCardapio.Name = "btnCardapio";
-            this.btnCardapio.Size = new System.Drawing.Size(256, 57);
+            this.btnCardapio.Size = new System.Drawing.Size(341, 70);
             this.btnCardapio.TabIndex = 25;
             this.btnCardapio.Text = "Cadastrar Item do Cardápio";
             this.btnCardapio.UseVisualStyleBackColor = false;
@@ -103,9 +107,10 @@
             this.btnRelatorioVendas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRelatorioVendas.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRelatorioVendas.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnRelatorioVendas.Location = new System.Drawing.Point(24, 352);
+            this.btnRelatorioVendas.Location = new System.Drawing.Point(32, 433);
+            this.btnRelatorioVendas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRelatorioVendas.Name = "btnRelatorioVendas";
-            this.btnRelatorioVendas.Size = new System.Drawing.Size(256, 73);
+            this.btnRelatorioVendas.Size = new System.Drawing.Size(341, 90);
             this.btnRelatorioVendas.TabIndex = 24;
             this.btnRelatorioVendas.Text = "Relatório de Vendas";
             this.btnRelatorioVendas.UseVisualStyleBackColor = false;
@@ -118,9 +123,10 @@
             this.btnEstoque.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEstoque.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEstoque.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnEstoque.Location = new System.Drawing.Point(24, 210);
+            this.btnEstoque.Location = new System.Drawing.Point(32, 258);
+            this.btnEstoque.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEstoque.Name = "btnEstoque";
-            this.btnEstoque.Size = new System.Drawing.Size(256, 46);
+            this.btnEstoque.Size = new System.Drawing.Size(341, 57);
             this.btnEstoque.TabIndex = 23;
             this.btnEstoque.Text = "Estoque";
             this.btnEstoque.UseVisualStyleBackColor = false;
@@ -133,9 +139,10 @@
             this.btnVendas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnVendas.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVendas.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnVendas.Location = new System.Drawing.Point(24, 95);
+            this.btnVendas.Location = new System.Drawing.Point(32, 117);
+            this.btnVendas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnVendas.Name = "btnVendas";
-            this.btnVendas.Size = new System.Drawing.Size(256, 46);
+            this.btnVendas.Size = new System.Drawing.Size(341, 57);
             this.btnVendas.TabIndex = 22;
             this.btnVendas.Text = "Vendas";
             this.btnVendas.UseVisualStyleBackColor = false;
@@ -148,9 +155,10 @@
             this.btnCadastrarFunc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCadastrarFunc.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrarFunc.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnCadastrarFunc.Location = new System.Drawing.Point(481, 95);
+            this.btnCadastrarFunc.Location = new System.Drawing.Point(641, 117);
+            this.btnCadastrarFunc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCadastrarFunc.Name = "btnCadastrarFunc";
-            this.btnCadastrarFunc.Size = new System.Drawing.Size(256, 73);
+            this.btnCadastrarFunc.Size = new System.Drawing.Size(341, 90);
             this.btnCadastrarFunc.TabIndex = 26;
             this.btnCadastrarFunc.Text = "Cadastrar Funcionários";
             this.btnCadastrarFunc.UseVisualStyleBackColor = false;
@@ -163,9 +171,10 @@
             this.btnInsumo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnInsumo.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInsumo.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnInsumo.Location = new System.Drawing.Point(481, 391);
+            this.btnInsumo.Location = new System.Drawing.Point(641, 481);
+            this.btnInsumo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnInsumo.Name = "btnInsumo";
-            this.btnInsumo.Size = new System.Drawing.Size(256, 80);
+            this.btnInsumo.Size = new System.Drawing.Size(341, 98);
             this.btnInsumo.TabIndex = 27;
             this.btnInsumo.Text = "Cadastrar Insumo de Receita";
             this.btnInsumo.UseVisualStyleBackColor = false;
@@ -178,9 +187,10 @@
             this.btnCadMesa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCadMesa.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadMesa.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnCadMesa.Location = new System.Drawing.Point(481, 199);
+            this.btnCadMesa.Location = new System.Drawing.Point(641, 245);
+            this.btnCadMesa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCadMesa.Name = "btnCadMesa";
-            this.btnCadMesa.Size = new System.Drawing.Size(256, 46);
+            this.btnCadMesa.Size = new System.Drawing.Size(341, 57);
             this.btnCadMesa.TabIndex = 28;
             this.btnCadMesa.Text = "Cadastrar Mesa";
             this.btnCadMesa.UseVisualStyleBackColor = false;
@@ -193,9 +203,10 @@
             this.btnEditarFunc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditarFunc.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditarFunc.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnEditarFunc.Location = new System.Drawing.Point(913, 95);
+            this.btnEditarFunc.Location = new System.Drawing.Point(1217, 117);
+            this.btnEditarFunc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEditarFunc.Name = "btnEditarFunc";
-            this.btnEditarFunc.Size = new System.Drawing.Size(256, 73);
+            this.btnEditarFunc.Size = new System.Drawing.Size(341, 90);
             this.btnEditarFunc.TabIndex = 29;
             this.btnEditarFunc.Text = "Editar Funcionários";
             this.btnEditarFunc.UseVisualStyleBackColor = false;
@@ -208,12 +219,14 @@
             this.btnEditarMesa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditarMesa.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditarMesa.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnEditarMesa.Location = new System.Drawing.Point(913, 199);
+            this.btnEditarMesa.Location = new System.Drawing.Point(1217, 245);
+            this.btnEditarMesa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEditarMesa.Name = "btnEditarMesa";
-            this.btnEditarMesa.Size = new System.Drawing.Size(256, 46);
+            this.btnEditarMesa.Size = new System.Drawing.Size(341, 57);
             this.btnEditarMesa.TabIndex = 30;
             this.btnEditarMesa.Text = "Editar Mesa";
             this.btnEditarMesa.UseVisualStyleBackColor = false;
+            this.btnEditarMesa.Click += new System.EventHandler(this.btnEditarMesa_Click);
             // 
             // btnEditarCard
             // 
@@ -222,9 +235,10 @@
             this.btnEditarCard.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditarCard.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditarCard.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnEditarCard.Location = new System.Drawing.Point(913, 287);
+            this.btnEditarCard.Location = new System.Drawing.Point(1217, 353);
+            this.btnEditarCard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEditarCard.Name = "btnEditarCard";
-            this.btnEditarCard.Size = new System.Drawing.Size(256, 57);
+            this.btnEditarCard.Size = new System.Drawing.Size(341, 70);
             this.btnEditarCard.TabIndex = 31;
             this.btnEditarCard.Text = "Editar Item do Cardápio";
             this.btnEditarCard.UseVisualStyleBackColor = false;
@@ -237,9 +251,10 @@
             this.btnEditarInsumo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditarInsumo.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditarInsumo.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnEditarInsumo.Location = new System.Drawing.Point(913, 391);
+            this.btnEditarInsumo.Location = new System.Drawing.Point(1217, 481);
+            this.btnEditarInsumo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEditarInsumo.Name = "btnEditarInsumo";
-            this.btnEditarInsumo.Size = new System.Drawing.Size(256, 80);
+            this.btnEditarInsumo.Size = new System.Drawing.Size(341, 98);
             this.btnEditarInsumo.TabIndex = 32;
             this.btnEditarInsumo.Text = "Editar Insumo de Receita";
             this.btnEditarInsumo.UseVisualStyleBackColor = false;
@@ -247,10 +262,10 @@
             // 
             // frmGerente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
-            this.ClientSize = new System.Drawing.Size(1278, 483);
+            this.ClientSize = new System.Drawing.Size(1704, 594);
             this.ControlBox = false;
             this.Controls.Add(this.btnEditarInsumo);
             this.Controls.Add(this.btnEditarCard);
@@ -265,6 +280,7 @@
             this.Controls.Add(this.btnVendas);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmGerente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmGerente";
