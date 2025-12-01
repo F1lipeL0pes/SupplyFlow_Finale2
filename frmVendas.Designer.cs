@@ -69,7 +69,7 @@
             this.btnEditarVenda.Name = "btnEditarVenda";
             this.btnEditarVenda.Size = new System.Drawing.Size(256, 46);
             this.btnEditarVenda.TabIndex = 7;
-            this.btnEditarVenda.Text = "Editar/Cancelar Venda";
+            this.btnEditarVenda.Text = "Editar Venda";
             this.btnEditarVenda.UseVisualStyleBackColor = false;
             this.btnEditarVenda.Click += new System.EventHandler(this.btnEditarVenda_Click);
             // 

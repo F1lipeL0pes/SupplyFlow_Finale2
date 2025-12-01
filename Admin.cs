@@ -698,6 +698,67 @@ namespace SupplyFlow
                 MessageBox.Show(sb.ToString());
             }
         }
+        public void editarFuncionario(ClasseFuncionario funcionario, int id)
+        {
+            try
+            {
+                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+
+                using (var connection = new MySqlConnection(conexao))
+                {
+                    connection.Open();
+
+                    string sql = @"UPDATE funcionario
+                       SET nome = @nome,
+                            login = @login,
+                            senha = @senha,
+                            cargo = @cargo,
+                            salario = @salario,
+                            data_admissao = @data_admissao,
+                            telefone = @telefone,
+                            cpf = @cpf
+                       WHERE idUsuario = @id";
+
+                    using (var cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@nome", funcionario.getNome());
+                        cmd.Parameters.AddWithValue("@login", funcionario.getLogin());
+                        cmd.Parameters.AddWithValue("@senha", funcionario.getSenha());
+                        cmd.Parameters.AddWithValue("@cargo", funcionario.getCargo());
+                        cmd.Parameters.AddWithValue("@salario", funcionario.getSalario());
+                        cmd.Parameters.AddWithValue("@data_admissao", funcionario.getDataAdm());
+                        cmd.Parameters.AddWithValue("@telefone", funcionario.getTelefone());
+                        cmd.Parameters.AddWithValue("@cpf", funcionario.getCpf());
+                        cmd.Parameters.AddWithValue("@id", id);
+
+                        int linhasAfetadas = cmd.ExecuteNonQuery();
+
+                        if (linhasAfetadas == 0)
+                        {
+                            MessageBox.Show("Nenhum registro foi alterado. ID não encontrado.");
+                        }
+                    }
+                }
+            }
+            catch (MySqlException erro)
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine("Erro Banco!");
+                sb.AppendLine(erro.GetType().ToString());
+                sb.AppendLine(erro.Message);
+                sb.AppendLine("\n" + erro.StackTrace);
+                MessageBox.Show(sb.ToString());
+            }
+            catch (Exception erro)
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine("Exceção Desconhecida !!!");
+                sb.AppendLine(erro.GetType().ToString());
+                sb.AppendLine(erro.Message);
+                sb.AppendLine("\n" + erro.StackTrace);
+                MessageBox.Show(sb.ToString());
+            }
+        }
     }
     
     

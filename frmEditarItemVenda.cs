@@ -291,5 +291,20 @@ namespace SupplyFlow
         {
             Limpar();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtId_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblId_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

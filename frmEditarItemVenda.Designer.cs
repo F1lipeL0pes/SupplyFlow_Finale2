@@ -61,6 +61,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(685, 54);
             this.panel1.TabIndex = 35;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // btnVoltar
             // 
@@ -110,6 +111,7 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(96, 30);
             this.txtId.TabIndex = 64;
+            this.txtId.TextChanged += new System.EventHandler(this.txtId_TextChanged);
             // 
             // lblId
             // 
@@ -121,6 +123,7 @@
             this.lblId.Size = new System.Drawing.Size(52, 32);
             this.lblId.TabIndex = 63;
             this.lblId.Text = "ID:";
+            this.lblId.Click += new System.EventHandler(this.lblId_Click);
             // 
             // panel2
             // 

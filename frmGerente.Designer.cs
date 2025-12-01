@@ -199,6 +199,7 @@
             this.btnEditarFunc.TabIndex = 29;
             this.btnEditarFunc.Text = "Editar Funcionários";
             this.btnEditarFunc.UseVisualStyleBackColor = false;
+            this.btnEditarFunc.Click += new System.EventHandler(this.btnEditarFunc_Click);
             // 
             // btnEditarMesa
             // 

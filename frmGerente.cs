@@ -95,5 +95,12 @@ namespace SupplyFlow
             editInsumo.Show();
             this.Close();
         }
+
+        private void btnEditarFunc_Click(object sender, EventArgs e)
+        {
+            frmEditarFunc editFunc = new frmEditarFunc(admin, idUsuario, cargo);
+            editFunc.Show();
+            this.Close();
+        }
     }
 }

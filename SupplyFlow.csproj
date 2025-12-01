@@ -163,6 +163,12 @@
     <Compile Include="frmEditarCard.Designer.cs">
       <DependentUpon>frmEditarCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEditarFunc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditarFunc.Designer.cs">
+      <DependentUpon>frmEditarFunc.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEditarInsumo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -286,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditarCard.resx">
       <DependentUpon>frmEditarCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditarFunc.resx">
+      <DependentUpon>frmEditarFunc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditarInsumo.resx">
       <DependentUpon>frmEditarInsumo.cs</DependentUpon>
