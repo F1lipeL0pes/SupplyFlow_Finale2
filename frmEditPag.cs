@@ -120,6 +120,42 @@ namespace SupplyFlow
                 }
                 status = lboStatus.SelectedItem.ToString();
                 tipo = lboTipo.SelectedItem.ToString();
+
+                try
+                {
+                    idVenda = Convert.ToInt32(txtIDVenda.Text);
+
+                    string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+                    using (var connection = new MySqlConnection(conexao))
+                    {
+                        connection.Open();
+
+                        string sql = "SELECT idVenda FROM venda WHERE idVenda = @id";
+
+                        using (var cmd = new MySqlCommand(sql, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@id", idVenda);
+
+                            object result = cmd.ExecuteScalar();
+
+                            if (result == null)
+                            {
+                                throw new idNaoEncontradoException();
+                            }
+                        }
+                    }
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Preenchida o ID com caracteres.\nRemova os caracteres e preencha com números!");
+                    return;
+                }
+                catch (idNaoEncontradoException)
+                {
+                    MessageBox.Show("ID não encontrado no Banco de Dados.\nPreencha com outro ID existente!");
+                    return;
+                }
+
                 try
                 {
                     ClassePagamento pag = new ClassePagamento(idVenda, tipo, status, valor, datah);

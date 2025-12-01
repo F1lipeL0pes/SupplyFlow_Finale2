@@ -251,7 +251,6 @@
             // 
             // txtDataHora
             // 
-            this.txtDataHora.Enabled = false;
             this.txtDataHora.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDataHora.Location = new System.Drawing.Point(224, 183);
             this.txtDataHora.Margin = new System.Windows.Forms.Padding(4);
