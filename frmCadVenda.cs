@@ -96,7 +96,7 @@ namespace SupplyFlow
 
             try
             {
-                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+                string conexao = @"server=127.0.0.1;uid=root;pwd=ifsp;database=supplyflow;ConnectionTimeout=1";
 
                 string query = "SELECT idMesa, numero FROM mesa";
 

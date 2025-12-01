@@ -41,8 +41,8 @@ namespace SupplyFlow
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            frmVendas garcom = new frmVendas(admin, idUsuario, cargo);
-            garcom.Show();
+            frmGerente gerente = new frmGerente(admin, idUsuario, cargo);
+            gerente.Show();
             this.Close();
         }
 
@@ -82,7 +82,7 @@ namespace SupplyFlow
                 {
                     id = Convert.ToInt32(txtId.Text);
 
-                    string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+                    string conexao = @"server=127.0.0.1;uid=root;pwd=ifsp;database=supplyflow;ConnectionTimeout=1";
                     using (var connection = new MySqlConnection(conexao))
                     {
                         connection.Open();

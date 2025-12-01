@@ -95,7 +95,7 @@ namespace SupplyFlow
             else if (rdbSobremesa.Checked) categoria = "Sobremesa";
             try
             {
-                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+                string conexao = @"server=127.0.0.1;uid=root;pwd=ifsp;database=supplyflow;ConnectionTimeout=1";
                 string query = "SELECT idPrato, nome, categoria FROM cardapio WHERE categoria = @categoria";
 
                 using (MySqlConnection conn = new MySqlConnection(conexao))
@@ -159,7 +159,7 @@ namespace SupplyFlow
                 {
                     id = Convert.ToInt32(txtId.Text);
 
-                    string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+                    string conexao = @"server=127.0.0.1;uid=root;pwd=ifsp;database=supplyflow;ConnectionTimeout=1";
                     using (var connection = new MySqlConnection(conexao))
                     {
                         connection.Open();

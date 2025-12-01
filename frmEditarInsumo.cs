@@ -38,7 +38,7 @@ namespace SupplyFlow
         {
             try
             {
-                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+                string conexao = @"server=127.0.0.1;uid=root;pwd=ifsp;database=supplyflow;ConnectionTimeout=1";
                 string query = "SELECT idProduto,descrição FROM produto";
                 string query2 = "SELECT idPrato, nome FROM cardapio";
 
@@ -115,7 +115,7 @@ namespace SupplyFlow
                 {
                     id = Convert.ToInt32(txtId.Text);
 
-                    string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+                    string conexao = @"server=127.0.0.1;uid=root;pwd=ifsp;database=supplyflow;ConnectionTimeout=1";
                     using (var connection = new MySqlConnection(conexao))
                     {
                         connection.Open();

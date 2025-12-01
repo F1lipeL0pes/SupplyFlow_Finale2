@@ -47,7 +47,7 @@ namespace SupplyFlow
         {
             try
             {
-                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+                string conexao = @"server=127.0.0.1;uid=root;pwd=ifsp;database=supplyflow;ConnectionTimeout=1";
 
                 string query = @"SELECT f.idUsuario, f.nome, v.idVenda, v.data_venda, v.hora_venda, m.numero, p.valor
                             from Funcionario as f INNER JOIN Venda as v ON f.idUsuario = v.idUsuario

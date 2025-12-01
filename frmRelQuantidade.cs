@@ -32,7 +32,7 @@ namespace SupplyFlow
 
         private void frmRelQuantidade_Load(object sender, EventArgs e)
         {
-            string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+            string conexao = @"server=127.0.0.1;uid=root;pwd=ifsp;database=supplyflow;ConnectionTimeout=1";
 
             string query = @"SELECT idProduto, descrição, quantidade_atual, quantidade_adequada
                          FROM Produto

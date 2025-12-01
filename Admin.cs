@@ -14,7 +14,7 @@ namespace SupplyFlow
 
         public Admin()
         {
-            connectionStr = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+            connectionStr = @"server=127.0.0.1;uid=root;pwd=ifsp;database=supplyflow;ConnectionTimeout=1";
         }
 
         public void cadastrarFunc(ClasseFuncionario funcionario)
@@ -547,7 +547,7 @@ namespace SupplyFlow
             try
             {
 
-                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+                string conexao = @"server=127.0.0.1;uid=root;pwd=ifsp;database=supplyflow;ConnectionTimeout=1";
 
                 using (var connection = new MySqlConnection(conexao))
                 {
@@ -606,7 +606,7 @@ namespace SupplyFlow
         {
             try
             {
-                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+                string conexao = @"server=127.0.0.1;uid=root;pwd=ifsp;database=supplyflow;ConnectionTimeout=1";
 
                 using (var connection = new MySqlConnection(conexao))
                 {
@@ -663,7 +663,7 @@ namespace SupplyFlow
         {
             try
             {
-                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+                string conexao = @"server=127.0.0.1;uid=root;pwd=ifsp;database=supplyflow;ConnectionTimeout=1";
 
                 using (var connection = new MySqlConnection(conexao))
                 {
@@ -719,7 +719,7 @@ namespace SupplyFlow
         {
             try
             {
-                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+                string conexao = @"server=127.0.0.1;uid=root;pwd=ifsp;database=supplyflow;ConnectionTimeout=1";
 
                 using (var connection = new MySqlConnection(conexao))
                 {
@@ -785,7 +785,7 @@ namespace SupplyFlow
         {
             try
             {
-                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+                string conexao = @"server=127.0.0.1;uid=root;pwd=ifsp;database=supplyflow;ConnectionTimeout=1";
 
                 using (var connection = new MySqlConnection(conexao))
                 {
@@ -844,7 +844,7 @@ namespace SupplyFlow
         {
             try
             {
-                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+                string conexao = @"server=127.0.0.1;uid=root;pwd=ifsp;database=supplyflow;ConnectionTimeout=1";
 
                 using (var connection = new MySqlConnection(conexao))
                 {
@@ -906,7 +906,7 @@ namespace SupplyFlow
         {
             try
             {
-                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+                string conexao = @"server=127.0.0.1;uid=root;pwd=ifsp;database=supplyflow;ConnectionTimeout=1";
 
                 using (var connection = new MySqlConnection(conexao))
                 {
@@ -966,7 +966,7 @@ namespace SupplyFlow
         {
             try
             {
-                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+                string conexao = @"server=127.0.0.1;uid=root;pwd=ifsp;database=supplyflow;ConnectionTimeout=1";
 
                 using (var connection = new MySqlConnection(conexao))
                 {
@@ -1024,7 +1024,7 @@ namespace SupplyFlow
         {
             try
             {
-                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+                string conexao = @"server=127.0.0.1;uid=root;pwd=ifsp;database=supplyflow;ConnectionTimeout=1";
 
                 using (var connection = new MySqlConnection(conexao))
                 {
@@ -1074,7 +1074,7 @@ namespace SupplyFlow
         {
             try
             {
-                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+                string conexao = @"server=127.0.0.1;uid=root;pwd=ifsp;database=supplyflow;ConnectionTimeout=1";
 
                 using (var connection = new MySqlConnection(conexao))
                 {
@@ -1124,7 +1124,7 @@ namespace SupplyFlow
         {
             try
             {
-                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+                string conexao = @"server=127.0.0.1;uid=root;pwd=ifsp;database=supplyflow;ConnectionTimeout=1";
 
                 using (var connection = new MySqlConnection(conexao))
                 {
@@ -1174,7 +1174,7 @@ namespace SupplyFlow
         {
             try
             {
-                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+                string conexao = @"server=127.0.0.1;uid=root;pwd=ifsp;database=supplyflow;ConnectionTimeout=1";
 
                 using (var connection = new MySqlConnection(conexao))
                 {
@@ -1224,7 +1224,7 @@ namespace SupplyFlow
         {
             try
             {
-                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+                string conexao = @"server=127.0.0.1;uid=root;pwd=ifsp;database=supplyflow;ConnectionTimeout=1";
 
                 using (var connection = new MySqlConnection(conexao))
                 {
@@ -1274,7 +1274,7 @@ namespace SupplyFlow
         {
             try
             {
-                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+                string conexao = @"server=127.0.0.1;uid=root;pwd=ifsp;database=supplyflow;ConnectionTimeout=1";
 
                 using (var connection = new MySqlConnection(conexao))
                 {
@@ -1324,7 +1324,7 @@ namespace SupplyFlow
         {
             try
             {
-                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+                string conexao = @"server=127.0.0.1;uid=root;pwd=ifsp;database=supplyflow;ConnectionTimeout=1";
 
                 using (var connection = new MySqlConnection(conexao))
                 {
@@ -1374,7 +1374,7 @@ namespace SupplyFlow
         {
             try
             {
-                string conexao = @"server=127.0.0.1;uid=root;pwd=1234;database=supplyflow;ConnectionTimeout=1";
+                string conexao = @"server=127.0.0.1;uid=root;pwd=ifsp;database=supplyflow;ConnectionTimeout=1";
 
                 using (var connection = new MySqlConnection(conexao))
                 {
