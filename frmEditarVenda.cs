@@ -57,7 +57,7 @@ namespace SupplyFlow
                 }
                 try
                 {
-                    idU = Convert.ToInt32(txtId.Text);
+                    idU = Convert.ToInt32(txtIdUsuario.Text);
                 }
                 catch (FormatException)
                 {

@@ -811,7 +811,7 @@ namespace SupplyFlow
                         {
                             throw (new idNaoEncontradoException());
                         }
-                        MessageBox.Show("Funcionário atualizado com sucesso!");
+                        MessageBox.Show("Venda atualizada com sucesso!");
                     }
                 }
             }
