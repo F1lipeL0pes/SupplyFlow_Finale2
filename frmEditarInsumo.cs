@@ -275,6 +275,7 @@ namespace SupplyFlow
                     id = Convert.ToInt32(txtId.Text);
                     admin.excluirInsumo(id);
                     Limpar();
+                    MessageBox.Show("Insumo excluído com sucesso!");
                 }
                 catch (FormatException)
                 {

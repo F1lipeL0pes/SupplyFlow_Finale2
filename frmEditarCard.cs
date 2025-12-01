@@ -118,24 +118,22 @@ namespace SupplyFlow
                 {
                     connection.Open();
 
-                    string sql = "SELECT nome, descrição, preço, categoria FROM cardapio WHERE idPrato = @id";
+                    string sql = "SELECT nome, 'descrição', preço, categoria FROM cardapio WHERE idPrato = @id";
 
                     using (var cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@id", id);
                         using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
-                            if (reader == null)
+                            MessageBox.Show("Reader.HasRows = " + reader.HasRows);
+                            if (!reader.Read())
                             {
                                 throw new idNaoEncontradoException();
                             }
-                            while (reader.Read())
-                            {
-                                txtNome.Text = reader.GetString("nome");
-                                txtDesc.Text = reader.GetString("descrição");
-                                txtPreco.Text = Convert.ToString(reader.GetDouble("preço"));
-                                lboProduto.SelectedItem = reader.GetString("categoria");
-                            };
+                            txtNome.Text = reader.GetString("nome");
+                            txtDesc.Text = reader.GetString("descrição");
+                            txtPreco.Text = Convert.ToString(reader.GetDouble("preço"));
+                            lboProduto.SelectedItem = reader.GetString("categoria");
                         }
                     }
 
@@ -167,6 +165,7 @@ namespace SupplyFlow
                     id = Convert.ToInt32(txtId.Text);
                     admin.excluirCardapio(id);
                     Limpar();
+                    MessageBox.Show("Item do Cardápio excluído com sucesso!");
                 }
                 catch (FormatException)
                 {

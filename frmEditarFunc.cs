@@ -178,6 +178,7 @@ namespace SupplyFlow
                     id = Convert.ToInt32(txtId.Text);
                     admin.excluirFuncionario(id);
                     Limpar();
+                    MessageBox.Show("Funcionário excluído com sucesso!");
                 }
                 catch (FormatException)
                 {

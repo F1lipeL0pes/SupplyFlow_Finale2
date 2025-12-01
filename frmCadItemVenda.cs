@@ -161,7 +161,7 @@ namespace SupplyFlow
                 {
                     connection.Open();
 
-                    string sql = "SELECT idItensVenda FROM itens_venda WHERE idItensVenda = @id";
+                    string sql = "SELECT idVenda FROM venda WHERE idVenda = @id";
 
                     using (var cmd = new MySqlCommand(sql, connection))
                     {

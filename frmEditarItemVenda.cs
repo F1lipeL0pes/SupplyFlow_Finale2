@@ -234,7 +234,7 @@ namespace SupplyFlow
                 }
                 catch (FormatException)
                 {
-                    MessageBox.Show("Preço preenchido com caracteres! Retire e preencha com números e tente novamente.");
+                    MessageBox.Show("ID preenchido com caracteres! Retire e preencha com números e tente novamente.");
                     return;
                 }
                 try
@@ -321,6 +321,7 @@ namespace SupplyFlow
                     id = Convert.ToInt32(txtId.Text);
                     admin.excluirItemVenda(id);
                     Limpar();
+                    MessageBox.Show("item da Venda excluído com sucesso!");
                 }
                 catch (FormatException)
                 {
